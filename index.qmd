@@ -1,8 +1,19 @@
 ---
-title: "Yesmine Ayeb"
+pagetitle: "Yesmine Ayeb"
+title-block-style: none
+toc: false
 ---
 
-Hi there! This site is still under construction and getting updated in the rare free moments I have as a fun side project. 
-If you have any feedback, please don't hesistate to reach out.
+# Welcome to my personal website!
 
+I am Yesmine Ayeb, an agronomy engineer currently pursuing an MSc in Horticultural Genetics & Biotechnology at CIHEAM MAICh in Chania, Greece.
+
+My background combines horticultural production and plant molecular biology. Through my studies and research experiences, I have developed a strong interest in plant responses to stress and the phytomicrobibome, although I am often intrigued by a variety of other plant-related topics too.
+
+This website is still under construction and getting updated in the rare free moments I have as a fun side project. If you have any feedback, please don't hesitate to reach out.
+
+**Contact** \
+*Email:* [ayeb.yesmine@gmail.com](mailto:ayeb.yesmine@gmail.com)  
+*LinkedIn:* [linkedin.com/in/yesmine-ayeb](https://www.linkedin.com/in/yesmine-ayeb)  
+*Bluesky:* [@lyrsei.bsky.social](https://bsky.app/profile/lyrsei.bsky.social)  
 

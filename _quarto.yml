@@ -3,11 +3,24 @@ project:
 
 website:
   title: "Yesmine Ayeb"
+  search: false
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+    right:
+      - text: "Academic Journey"
+        href: academic-journey.qmd
+
+      - text: "Research & Projects"
+        menu:
+          - text: "Functional Characterization of 7 Local Greek Tomato Cultivars in Ripening"
+            href: research/tomato-ripening.qmd
+          - text: "Optimization of Tissue Culture Protocol for Rosa centifolia"
+            href: research/rosa-centifolia.qmd
+          
+      - text: "Data Analysis & Visualization"
+        href: data-analysis.qmd
+
+      - text: "Continuing Education"
+        href: continuing-education.qmd
 
 format:
   html:
