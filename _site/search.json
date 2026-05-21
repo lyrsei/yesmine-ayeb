@@ -1,15 +1,8 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to my personal website!",
-    "section": "",
-    "text": "Welcome to my personal website!\nI am Yesmine Ayeb, an agronomy engineer currently pursuing an MSc in Horticultural Genetics & Biotechnology at CIHEAM MAICh in Chania, Greece.\nMy background combines horticultural production and plant molecular biology. Through my studies and research experiences, I have developed a strong interest in plant responses to stress and the phytomicrobibome, although I am often intrigued by a variety of other plant-related topics too.\nThis website is still under construction and getting updated in the rare free moments I have as a fun side project. If you have any feedback, please don’t hesitate to reach out.\nContact\nEmail: ayeb.yesmine@gmail.com\nLinkedIn: linkedin.com/in/yesmine-ayeb\nBluesky: @lyrsei.bsky.social"
-  },
-  {
-    "objectID": "continuing-education.html",
-    "href": "continuing-education.html",
-    "title": "Continuing Education",
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Research & Projects",
     "section": "",
     "text": "[Placeholder]"
   },
@@ -21,17 +14,17 @@
     "text": "[Placeholder]"
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Research & Projects",
+    "objectID": "continuing-education.html",
+    "href": "continuing-education.html",
+    "title": "Continuing Education",
     "section": "",
     "text": "[Placeholder]"
   },
   {
-    "objectID": "skills.html",
-    "href": "skills.html",
-    "title": "Skills",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to my personal website!",
     "section": "",
-    "text": "[Placeholder]"
+    "text": "Welcome to my personal website!\nI am Yesmine Ayeb, an agronomy engineer currently pursuing an MSc in Horticultural Genetics & Biotechnology at CIHEAM MAICh in Chania, Greece.\nMy background combines horticultural production and plant molecular biology. Through my studies and research experiences, I have developed a strong interest in plant responses to stress and the phytomicrobibome, although I am often intrigued by a variety of other plant-related topics too.\nThis website is still under construction and getting updated in the rare free moments I have as a fun side project. If you have any feedback, please don’t hesitate to reach out.\nContact\nEmail: ayeb.yesmine@gmail.com\nLinkedIn: linkedin.com/in/yesmine-ayeb\nBluesky: @lyrsei.bsky.social"
   }
 ]
