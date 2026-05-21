@@ -1,6 +1,342 @@
 ---
 title: "Academic Journey"
 format: html
+toc: false
 ---
 
-[Placeholder]
+[Placeholder: Timeline] \
+
+[Map] V4 \
+
+## Places That Shaped My Academic and Professional Path
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| toc: false
+#| fig-width: 10
+#| fig-height: 6
+
+library(leaflet)
+library(sf)
+library(rnaturalearth)
+library(htmlwidgets)
+
+places <- data.frame(
+  name = c(
+    # Education
+    "Mediterranean Agronomic Institute of Chania",
+    "Agrocampus Ouest Rennes-Angers",
+    "Higher Institute of Agronomic Sciences of Chott Mariem",
+    "Bizerte Preparatory Engineering Institute",
+
+    # Research
+    "Plant Molecular Biology and Biotechnology Laboratory, MAICh",
+    "Horticultural Science Laboratory, National Agronomic Institute of Tunisia",
+
+    # Industry
+    "Azib Flower",
+    "Bioverte",
+    "Sanlucar"
+  ),
+
+  role = c(
+    # Education
+    "MSc in Horticultural Genetics and Biotechnology",
+    "Erasmus Exchange Program",
+    "Agronomy Engineering",
+    "Pre-Engineering courses in Biology-Geology",
+
+    # Research
+    "Functional Characterization of 7 Local Greek Tomato Cultivars in Ripening",
+    "Optimization of Tissue Culture Protocol for Rosa centifolia",
+
+    # Industry
+    "Internship: ornamental greenhouse operations and Integrated Pest Management",
+    "Internship: sustainable beekeeping, hive management, and honey extraction",
+    "Internship: hydroponic red berry production"
+  ),
+
+  category = c(
+    "Education", "Education", "Education", "Education",
+    "Research", "Research",
+    "Industry", "Industry", "Industry"
+  ),
+
+  location = c(
+    "Chania, Greece",
+    "Angers, France",
+    "Sousse / Chott Mariem, Tunisia",
+    "Bizerte, Tunisia",
+    "Chania, Greece",
+    "Tunis, Tunisia",
+    "Bizerte, Tunisia",
+    "Bizerte, Tunisia",
+    "Bizerte, Tunisia"
+  ),
+
+  years = c(
+    "2024 - Present",
+    "2021 - 2022",
+    "2019 - 2022",
+    "2017 - 2019",
+    "Oct 2025 - Present",
+    "Jun 2022 - Dec 2022",
+    "Jun 2021",
+    "Jul 2021",
+    "Aug 2020"
+  ),
+
+  country = c(
+    "Greece", "France", "Tunisia", "Tunisia",
+    "Greece", "Tunisia", "Tunisia", "Tunisia", "Tunisia"
+  ),
+
+  place_group = c(
+    "Chania",
+    "Angers",
+    "Sousse / Chott Mariem",
+    "Bizerte",
+    "Chania",
+    "Tunis",
+    "Bizerte",
+    "Bizerte",
+    "Bizerte"
+  ),
+
+  base_lat = c(
+    35.5138,  # Chania
+    47.4784,  # Angers
+    35.9230,  # Sousse / Chott Mariem
+    37.2744,  # Bizerte
+    35.5138,  # Chania
+    36.8189,  # Tunis
+    37.2744,  # Bizerte
+    37.2744,  # Bizerte
+    37.2744   # Bizerte
+  ),
+
+  base_lng = c(
+    24.0180,  # Chania
+    -0.5632, # Angers
+    10.5600, # Sousse / Chott Mariem
+    9.8739,  # Bizerte
+    24.0180, # Chania
+    10.1658, # Tunis
+    9.8739,  # Bizerte
+    9.8739,  # Bizerte
+    9.8739   # Bizerte
+  )
+)
+
+# Category colors
+col_education <- "#66c5cc"
+col_research  <- "#f89c74"
+col_industry  <- "#f6cf71"
+
+places$marker_color <- ifelse(
+  places$category == "Education", col_education,
+  ifelse(places$category == "Research", col_research, col_industry)
+)
+
+places$marker_radius <- ifelse(
+  places$category == "Education", 7.5,
+  ifelse(places$category == "Research", 6.5, 5.8)
+)
+
+places$marker_weight <- ifelse(
+  places$category == "Education", 2.7,
+  ifelse(places$category == "Research", 2.3, 2)
+)
+
+places$marker_opacity <- ifelse(
+  places$category == "Education", 0.96,
+  ifelse(places$category == "Research", 0.88, 0.84)
+)
+
+places$popup <- paste0(
+  "<strong>", places$name, "</strong><br>",
+  "<em>", places$category, "</em><br>",
+  places$role, "<br>",
+  places$location, "<br>",
+  places$years
+)
+
+# ---------------------------------------------------------
+# Radial display coordinates for overlapping places
+# ---------------------------------------------------------
+
+places$lat <- places$base_lat
+places$lng <- places$base_lng
+
+# Smaller than before, so points stay closer to the real coordinates.
+offset_distance <- 0.11
+
+for (grp in unique(places$place_group)) {
+  idx <- which(places$place_group == grp)
+  n <- length(idx)
+
+  if (n > 1) {
+    angles <- seq(0, 2 * pi, length.out = n + 1)[-1]
+
+    if (grp == "Chania") {
+      angles <- angles + pi / 4
+    }
+
+    if (grp == "Bizerte") {
+      angles <- angles + pi / 6
+    }
+
+    places$lat[idx] <- places$base_lat[idx] + offset_distance * sin(angles)
+    places$lng[idx] <- places$base_lng[idx] + offset_distance * cos(angles)
+  }
+}
+
+# Draw lower-priority categories first.
+places$priority <- ifelse(
+  places$category == "Industry", 1,
+  ifelse(places$category == "Research", 2, 3)
+)
+
+places <- places[order(places$priority), ]
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+study_countries <- world[world$admin %in% unique(places$country), ]
+
+leaflet(
+  options = leafletOptions(
+    zoomControl = TRUE,
+    attributionControl = FALSE
+  )
+) |>
+  addPolygons(
+    data = world,
+    color = "#b8b8b8",
+    weight = 0.6,
+    fillColor = "white",
+    fillOpacity = 1,
+    opacity = 1
+  ) |>
+  addPolygons(
+    data = study_countries,
+    layerId = ~paste0("study-", admin),
+    color = "#777777",
+    weight = 1.1,
+    fillColor = "#d9d9d9",
+    fillOpacity = 0.10,
+    opacity = 1,
+    label = ~paste0("Click to highlight ", admin),
+    highlightOptions = highlightOptions(
+      weight = 2.2,
+      color = "#555555",
+      fillColor = "#c7c7c7",
+      fillOpacity = 0.35,
+      bringToFront = FALSE
+    )
+  ) |>
+
+  addCircleMarkers(
+    data = subset(places, category == "Industry"),
+    lng = ~lng,
+    lat = ~lat,
+    radius = ~marker_radius,
+    color = col_industry,
+    weight = ~marker_weight,
+    fillColor = col_industry,
+    fillOpacity = ~marker_opacity,
+    opacity = 1,
+    popup = ~popup,
+    label = ~name,
+    group = "Industry"
+  ) |>
+
+  addCircleMarkers(
+    data = subset(places, category == "Research"),
+    lng = ~lng,
+    lat = ~lat,
+    radius = ~marker_radius,
+    color = col_research,
+    weight = ~marker_weight,
+    fillColor = col_research,
+    fillOpacity = ~marker_opacity,
+    opacity = 1,
+    popup = ~popup,
+    label = ~name,
+    group = "Research"
+  ) |>
+
+  addCircleMarkers(
+    data = subset(places, category == "Education"),
+    lng = ~lng,
+    lat = ~lat,
+    radius = ~marker_radius,
+    color = col_education,
+    weight = ~marker_weight,
+    fillColor = col_education,
+    fillOpacity = ~marker_opacity,
+    opacity = 1,
+    popup = ~popup,
+    label = ~name,
+    group = "Education"
+  ) |>
+
+  addLegend(
+    position = "bottomright",
+    colors = c(col_education, col_research, col_industry),
+    labels = c("Education", "Research", "Industry"),
+    opacity = 1
+  ) |>
+
+  fitBounds(
+    lng1 = min(places$lng) - 8,
+    lat1 = min(places$lat) - 4,
+    lng2 = max(places$lng) + 8,
+    lat2 = max(places$lat) + 4
+  ) |>
+
+  onRender(
+    "
+    function(el, x) {
+      var map = this;
+      var studyLayers = [];
+
+      function resetStudyCountries() {
+        studyLayers.forEach(function(layer) {
+          layer.setStyle({
+            color: '#777777',
+            weight: 1.1,
+            fillColor: '#d9d9d9',
+            fillOpacity: 0.10,
+            opacity: 1
+          });
+        });
+      }
+
+      map.eachLayer(function(layer) {
+        if (
+          layer.options &&
+          layer.options.layerId &&
+          layer.options.layerId.startsWith('study-')
+        ) {
+          studyLayers.push(layer);
+
+          layer.on('click', function() {
+            resetStudyCountries();
+
+            layer.setStyle({
+              color: '#555555',
+              weight: 2.4,
+              fillColor: '#c7c7c7',
+              fillOpacity: 0.42,
+              opacity: 1
+            });
+          });
+        }
+      });
+    }
+    "
+  )
+```
+
+
