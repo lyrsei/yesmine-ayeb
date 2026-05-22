@@ -1,5 +1,11 @@
 ---
-title: "Data Analysis & Visualization"
+title: "Learning R & Data Science"
 format: html
 ---
 
+Although working with R feels much more natural to me now, learning it was not always easy. The breakthrough for me what when I signed up for [Kane’s Data Science Course
+](https://bootcamp.davidkane.info/). What made the bootcamp  meaningful was its collaborative environment. The classes brought together people with different levels of experience, which made learning feel more accessible and encouraging. Seeing how others approached the same problems helped me understand how to think more clearly about data analysis. As a final project for the bootcamp, I created my first R-based project: [Phyllosphere Microbiome](https://lyrsei.quarto.pub/phyllosphere-microbiome/). Looking back at it now, I can clearly see things I would improve, both in the analysis and in the presentation. Still, it remains an important milestone for me. 
+
+Some resources that I have found incredibly useful along the way include [From Data to Viz](https://www.data-to-viz.com), a practical guide that helps users choose suitable graph types based on their data structure while also pointing out common visualization pitfalls, and [ggplot2 Uncharted](https://www.ggplot2-uncharted.com), an online course focused on strengthening data visualization skills in R through ggplot2.
+
+In the following months, I plan to continue improving my understanding of statistics, moving from frequentist approaches toward Bayesian thinking. I will be sharing small projects made along the way as part of this learning process.

@@ -1,14 +1,577 @@
 ---
-title: "Academic Journey"
+title: "My Path in Plant Science"
 format: html
 toc: false
 ---
+My academic journey began at the Bizerte Preparatory Engineering Institute, where my interest in plant biology first started to take shape through the foundational courses I had taken there. This growing curiosity became the main reason I chose to pursue agronomy after the national examination, within the Tunisian Grandes Écoles system, which guides students toward specialized engineering schools based on their ranking and academic orientation. I then joined the Higher Institute of Agronomic Sciences of Chott Mariem, where I specialized in Horticultural Production and developed a stronger connection between plant science, crop management, and applied agronomy. A key step in this journey was my selection for the Erasmus+ exchange program at Agrocampus Ouest Rennes-Angers in France. This experience introduced me to biotechnology-oriented laboratory training and encouraged me to think about plant science from a broader perspective. It also strengthened my interest in multicultural academic environments, where scientific learning is enriched by cultural exchange and collaboration.
 
-[Placeholder: Timeline] \
+My graduation project on Rosa centifolia was motivated by my interest in high-value horticultural species and the role of plant biotechnology in improving propagation and production practices. Working with tissue culture allowed me to explore how laboratory-based techniques can address practical challenges in ornamental and aromatic plant production. Later, my MSc research at the Mediterranean Agronomic Institute of Chania offered a  continuation of this path, linking molecular plant biology with agronomic applications through the study of tomato ripening, fruit quality, and postharvest behaviour.
 
-[Map] V4 \
+The following timeline and map highlight the places, institutions, and experiences that have shaped my development as a plant scientist.
 
-## Places That Shaped My Academic and Professional Path
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(htmltools)
+
+timeline_items <- data.frame(
+  map_id = c(
+    "ipeib",
+    "isacm",
+    "sanlucar",
+    "azib_flower",
+    "bioverte",
+    "aco",
+    "hs_lab",
+    "maich",
+    "pmbb_lab"
+  ),
+
+  time = c(
+    "Sep 2017 - Jun 2019",
+    "Sep 2019 - Jun 2022",
+    "Aug 2020",
+    "Jun 2021",
+    "Jul 2021",
+    "Sep 2021 - Feb 2022",
+    "Jun 2022 - Dec 2022",
+    "Sep 2024 - Present",
+    "Oct 2025 - Present"
+  ),
+
+  title = c(
+    "Bizerte Preparatory Engineering Institute",
+    "Higher Institute of Agronomic Sciences of Chott Mariem",
+    "Sanlucar",
+    "Azib Flower",
+    "Bioverte",
+    "Agrocampus Ouest Rennes-Angers",
+    "Horticultural Sciences Laboratory, INAT",
+    "Mediterranean Agronomic Institute of Chania",
+    "Plant Molecular Biology and Biotechnology Laboratory, MAICh"
+  ),
+
+  short_title = c(
+    "IPEIB",
+    "ISACM",
+    "Sanlucar",
+    "Azib Flower",
+    "Bioverte",
+    "ACO",
+    "HS Lab",
+    "MAICh",
+    "PMBB Lab"
+  ),
+
+  role = c(
+    "Pre-Engineering courses in Biology-Geology",
+    "Agronomy Engineering - Horticultural Production",
+    "Internship",
+    "Internship",
+    "Internship",
+    "Erasmus Exchange Program",
+    "Graduation Thesis",
+    "Master of Science - Horticultural Genetics and Biotechnology",
+    "Graduation Thesis"
+  ),
+
+  description = c(
+    "Built a foundation in plant & animal biology, geology, and chemistry.",
+    "Specialized in horticultural production.",
+    "Worked on hydroponic systems for red berries production.",
+    "Worked on ornamental greenhouse operations and practiced integrated pest management.",
+    "Explored sustainable beekeeping, hive management, and honey extraction.",
+    "Completed an international exchange program focused on agronomy and horticultural sciences.",
+    "Optimization of Tissue Culture Protocol for Rosa centifolia.",
+    "Advanced training in horticultural genetics, biotechnology, plant physiology, and molecular biology.",
+    "Functional Characterization of 7 Local Greek Tomato Cultivars in Ripening."
+  ),
+
+  category = c(
+    "Education",
+    "Education",
+    "Industry",
+    "Industry",
+    "Industry",
+    "Education",
+    "Research",
+    "Education",
+    "Research"
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+timeline_items$position <- ifelse(
+  timeline_items$category == "Education",
+  "top",
+  "bottom"
+)
+
+timeline_items$color <- ifelse(
+  timeline_items$category == "Education", "#66c5cc",
+  ifelse(timeline_items$category == "Research", "#f89c74", "#f6cf71")
+)
+
+timeline_html <- tagList(
+  tags$style(HTML("
+    .aj3-timeline-wrapper {
+      width: 100%;
+      margin: 18px 0 35px 0;
+      overflow: visible;
+    }
+
+    .aj3-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      grid-template-rows: 62px 34px 62px;
+      column-gap: 4px;
+      width: 100%;
+      overflow: visible;
+    }
+
+    .aj3-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 3px;
+      background: #d5d5d5;
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+
+    .aj3-item {
+      position: relative;
+      display: grid;
+      grid-template-rows: 62px 34px 62px;
+      z-index: 1;
+      min-width: 0;
+    }
+
+    .aj3-top,
+    .aj3-bottom {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      min-width: 0;
+    }
+
+    .aj3-top {
+      align-items: flex-end;
+      padding-bottom: 6px;
+    }
+
+    .aj3-bottom {
+      align-items: flex-start;
+      padding-top: 6px;
+    }
+
+    .aj3-axis {
+      position: relative;
+    }
+
+    .aj3-node {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 1px #bdbdbd;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
+
+    .aj3-connector-top {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 50%;
+      width: 2px;
+      background: #d0d0d0;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .aj3-connector-bottom {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      bottom: 0;
+      width: 2px;
+      background: #d0d0d0;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .aj3-name {
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.78rem;
+      line-height: 1.15;
+      color: #2c3e50;
+      background: white;
+      border: 1px solid #e2e2e2;
+      border-radius: 8px;
+      padding: 5px 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      max-width: 105px;
+      transition: background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .aj3-name:hover {
+      background: #f7f7f7;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+    }
+
+    .aj3-name.aj3-active {
+      background: #f1f1f1;
+      box-shadow: 0 2px 7px rgba(0,0,0,0.13);
+    }
+
+    .aj3-floating-popup {
+      display: none;
+      position: fixed;
+      width: 300px;
+      background: white;
+      border: 1px solid #dddddd;
+      border-radius: 12px;
+      padding: 13px 14px 14px 14px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.22);
+      text-align: left;
+      z-index: 999999;
+    }
+
+    .aj3-popup-close {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      border: none;
+      background: transparent;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      color: #777777;
+      padding: 2px 4px;
+    }
+
+    .aj3-popup-close:hover {
+      color: #222222;
+    }
+
+    .aj3-popup-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 9px;
+      padding-right: 20px;
+    }
+
+    .aj3-popup-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.73rem;
+      color: #555555;
+      background: #f4f4f4;
+      padding: 3px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .aj3-popup-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .aj3-popup-time {
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: #444444;
+      white-space: nowrap;
+    }
+
+    .aj3-popup-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #2c3e50;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .aj3-popup-role {
+      font-size: 0.84rem;
+      color: #4f4f4f;
+      line-height: 1.35;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .aj3-popup-description {
+      font-size: 0.81rem;
+      color: #666666;
+      line-height: 1.38;
+    }
+
+    @media (max-width: 900px) {
+      .aj3-name {
+        font-size: 0.68rem;
+        max-width: 82px;
+        padding: 4px 5px;
+      }
+
+      .aj3-floating-popup {
+        width: 245px;
+      }
+
+      .aj3-popup-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .aj3-popup-time {
+        white-space: normal;
+      }
+    }
+  ")),
+
+  tags$div(
+    class = "aj3-timeline-wrapper",
+
+    tags$div(
+      class = "aj3-timeline",
+
+      lapply(seq_len(nrow(timeline_items)), function(i) {
+        is_top <- timeline_items$position[i] == "top"
+
+        name_button <- tags$button(
+          type = "button",
+          class = "aj3-name",
+          `data-map-id` = timeline_items$map_id[i],
+          `data-title` = timeline_items$title[i],
+          `data-time` = timeline_items$time[i],
+          `data-role` = timeline_items$role[i],
+          `data-description` = timeline_items$description[i],
+          `data-category` = timeline_items$category[i],
+          `data-color` = timeline_items$color[i],
+          `data-position` = timeline_items$position[i],
+          timeline_items$short_title[i]
+        )
+
+        tags$div(
+          class = "aj3-item",
+
+          if (is_top) {
+            tags$div(class = "aj3-top", name_button)
+          } else {
+            tags$div(class = "aj3-top")
+          },
+
+          tags$div(
+            class = "aj3-axis",
+            tags$div(
+              class = if (is_top) "aj3-connector-top" else "aj3-connector-bottom"
+            ),
+            tags$div(
+              class = "aj3-node",
+              style = paste0("background:", timeline_items$color[i], ";")
+            )
+          ),
+
+          if (!is_top) {
+            tags$div(class = "aj3-bottom", name_button)
+          } else {
+            tags$div(class = "aj3-bottom")
+          }
+        )
+      })
+    ),
+
+    tags$div(class = "aj3-floating-popup")
+  ),
+
+  tags$script(HTML("
+    (function() {
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/\"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function initAcademicJourneyTimeline() {
+        var wrapper = document.querySelector('.aj3-timeline-wrapper');
+
+        if (!wrapper || wrapper.dataset.initialized === 'true') {
+          return;
+        }
+
+        wrapper.dataset.initialized = 'true';
+
+        var popup = wrapper.querySelector('.aj3-floating-popup');
+        var activeButton = null;
+
+        function closePopup() {
+          popup.style.display = 'none';
+          popup.innerHTML = '';
+
+          wrapper.querySelectorAll('.aj3-name').forEach(function(button) {
+            button.classList.remove('aj3-active');
+          });
+
+          activeButton = null;
+        }
+
+        function positionPopup(button) {
+          var rect = button.getBoundingClientRect();
+          var margin = 12;
+
+          popup.style.display = 'block';
+
+          var popupWidth = popup.offsetWidth;
+          var popupHeight = popup.offsetHeight;
+
+          var below = rect.bottom + margin;
+          var above = rect.top - popupHeight - margin;
+
+          var preferredTop;
+
+          if (button.getAttribute('data-position') === 'top') {
+            preferredTop = below;
+          } else {
+            preferredTop = above;
+          }
+
+          if (preferredTop < margin) {
+            preferredTop = below;
+          }
+
+          if (preferredTop + popupHeight > window.innerHeight - margin) {
+            preferredTop = above;
+          }
+
+          var top = Math.max(
+            margin,
+            Math.min(preferredTop, window.innerHeight - popupHeight - margin)
+          );
+
+          var left = rect.left + rect.width / 2 - popupWidth / 2;
+
+          left = Math.max(
+            margin,
+            Math.min(left, window.innerWidth - popupWidth - margin)
+          );
+
+          popup.style.top = top + 'px';
+          popup.style.left = left + 'px';
+        }
+
+        function openPopup(button) {
+          var title = button.getAttribute('data-title');
+          var time = button.getAttribute('data-time');
+          var role = button.getAttribute('data-role');
+          var description = button.getAttribute('data-description');
+          var category = button.getAttribute('data-category');
+          var color = button.getAttribute('data-color');
+
+          popup.innerHTML =
+            '<button type=\"button\" class=\"aj3-popup-close\" aria-label=\"Close\">×</button>' +
+            '<div class=\"aj3-popup-meta\">' +
+              '<div class=\"aj3-popup-category\">' +
+                '<span class=\"aj3-popup-dot\" style=\"background:' + escapeHtml(color) + ';\"></span>' +
+                escapeHtml(category) +
+              '</div>' +
+              '<div class=\"aj3-popup-time\">' + escapeHtml(time) + '</div>' +
+            '</div>' +
+            '<div class=\"aj3-popup-title\">' + escapeHtml(title) + '</div>' +
+            '<div class=\"aj3-popup-role\">' + escapeHtml(role) + '</div>' +
+            '<div class=\"aj3-popup-description\">' + escapeHtml(description) + '</div>';
+
+          wrapper.querySelectorAll('.aj3-name').forEach(function(item) {
+            item.classList.remove('aj3-active');
+          });
+
+          button.classList.add('aj3-active');
+          activeButton = button;
+
+          positionPopup(button);
+
+          var closeButton = popup.querySelector('.aj3-popup-close');
+
+          if (closeButton) {
+            closeButton.addEventListener('click', function(event) {
+              event.stopPropagation();
+              closePopup();
+            });
+          }
+        }
+
+        wrapper.querySelectorAll('.aj3-name').forEach(function(button) {
+          button.addEventListener('click', function(event) {
+            event.stopPropagation();
+
+            if (activeButton === button && popup.style.display === 'block') {
+              closePopup();
+            } else {
+              openPopup(button);
+
+              window.dispatchEvent(
+                new CustomEvent('academicJourneySelect', {
+                  detail: {
+                    mapId: button.getAttribute('data-map-id')
+                  }
+                })
+              );
+            }
+          });
+        });
+
+        popup.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
+
+        document.addEventListener('click', function() {
+          closePopup();
+        });
+
+        window.addEventListener('resize', function() {
+          if (activeButton && popup.style.display === 'block') {
+            positionPopup(activeButton);
+          }
+        });
+
+        window.addEventListener('scroll', function() {
+          if (activeButton && popup.style.display === 'block') {
+            positionPopup(activeButton);
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAcademicJourneyTimeline);
+      } else {
+        initAcademicJourneyTimeline();
+      }
+    })();
+  "))
+)
+
+timeline_html
+```
 
 ```{r}
 #| echo: false
@@ -22,8 +585,26 @@ library(leaflet)
 library(sf)
 library(rnaturalearth)
 library(htmlwidgets)
+library(htmltools)
 
 places <- data.frame(
+  map_id = c(
+    # Education
+    "maich",
+    "aco",
+    "isacm",
+    "ipeib",
+
+    # Research
+    "pmbb_lab",
+    "hs_lab",
+
+    # Industry
+    "azib_flower",
+    "bioverte",
+    "sanlucar"
+  ),
+
   name = c(
     # Education
     "Mediterranean Agronomic Institute of Chania",
@@ -39,23 +620,6 @@ places <- data.frame(
     "Azib Flower",
     "Bioverte",
     "Sanlucar"
-  ),
-
-  role = c(
-    # Education
-    "MSc in Horticultural Genetics and Biotechnology",
-    "Erasmus Exchange Program",
-    "Agronomy Engineering",
-    "Pre-Engineering courses in Biology-Geology",
-
-    # Research
-    "Functional Characterization of 7 Local Greek Tomato Cultivars in Ripening",
-    "Optimization of Tissue Culture Protocol for Rosa centifolia",
-
-    # Industry
-    "Internship: ornamental greenhouse operations and Integrated Pest Management",
-    "Internship: sustainable beekeeping, hive management, and honey extraction",
-    "Internship: hydroponic red berry production"
   ),
 
   category = c(
@@ -76,18 +640,6 @@ places <- data.frame(
     "Bizerte, Tunisia"
   ),
 
-  years = c(
-    "2024 - Present",
-    "2021 - 2022",
-    "2019 - 2022",
-    "2017 - 2019",
-    "Oct 2025 - Present",
-    "Jun 2022 - Dec 2022",
-    "Jun 2021",
-    "Jul 2021",
-    "Aug 2020"
-  ),
-
   country = c(
     "Greece", "France", "Tunisia", "Tunisia",
     "Greece", "Tunisia", "Tunisia", "Tunisia", "Tunisia"
@@ -106,28 +658,30 @@ places <- data.frame(
   ),
 
   base_lat = c(
-    35.5138,  # Chania
-    47.4784,  # Angers
-    35.9230,  # Sousse / Chott Mariem
-    37.2744,  # Bizerte
-    35.5138,  # Chania
-    36.8189,  # Tunis
-    37.2744,  # Bizerte
-    37.2744,  # Bizerte
-    37.2744   # Bizerte
+    35.5138,
+    47.4784,
+    35.9230,
+    37.2744,
+    35.5138,
+    36.8189,
+    37.2744,
+    37.2744,
+    37.2744
   ),
 
   base_lng = c(
-    24.0180,  # Chania
-    -0.5632, # Angers
-    10.5600, # Sousse / Chott Mariem
-    9.8739,  # Bizerte
-    24.0180, # Chania
-    10.1658, # Tunis
-    9.8739,  # Bizerte
-    9.8739,  # Bizerte
-    9.8739   # Bizerte
-  )
+    24.0180,
+    -0.5632,
+    10.5600,
+    9.8739,
+    24.0180,
+    10.1658,
+    9.8739,
+    9.8739,
+    9.8739
+  ),
+
+  stringsAsFactors = FALSE
 )
 
 # Category colors
@@ -141,13 +695,13 @@ places$marker_color <- ifelse(
 )
 
 places$marker_radius <- ifelse(
-  places$category == "Education", 7.5,
-  ifelse(places$category == "Research", 6.5, 5.8)
+  places$category == "Education", 5.5,
+  ifelse(places$category == "Research", 5.0, 4.5)
 )
 
 places$marker_weight <- ifelse(
-  places$category == "Education", 2.7,
-  ifelse(places$category == "Research", 2.3, 2)
+  places$category == "Education", 2.2,
+  ifelse(places$category == "Research", 2.0, 1.8)
 )
 
 places$marker_opacity <- ifelse(
@@ -155,12 +709,10 @@ places$marker_opacity <- ifelse(
   ifelse(places$category == "Research", 0.88, 0.84)
 )
 
+# Minimal map popup: name + location only
 places$popup <- paste0(
-  "<strong>", places$name, "</strong><br>",
-  "<em>", places$category, "</em><br>",
-  places$role, "<br>",
-  places$location, "<br>",
-  places$years
+  "<div class='aj-map-popup-title'>", places$name, "</div>",
+  "<div class='aj-map-popup-location'>", places$location, "</div>"
 )
 
 # ---------------------------------------------------------
@@ -170,7 +722,6 @@ places$popup <- paste0(
 places$lat <- places$base_lat
 places$lng <- places$base_lng
 
-# Smaller than before, so points stay closer to the real coordinates.
 offset_distance <- 0.11
 
 for (grp in unique(places$place_group)) {
@@ -193,10 +744,14 @@ for (grp in unique(places$place_group)) {
   }
 }
 
-# Draw lower-priority categories first.
+# ---------------------------------------------------------
+# Pin overlap priority:
+# Research on top, then Education, then Industry.
+# ---------------------------------------------------------
+
 places$priority <- ifelse(
   places$category == "Industry", 1,
-  ifelse(places$category == "Research", 2, 3)
+  ifelse(places$category == "Education", 2, 3)
 )
 
 places <- places[order(places$priority), ]
@@ -204,12 +759,138 @@ places <- places[order(places$priority), ]
 world <- ne_countries(scale = "medium", returnclass = "sf")
 study_countries <- world[world$admin %in% unique(places$country), ]
 
-leaflet(
+# ---------------------------------------------------------
+# Map styling to match timeline section
+# ---------------------------------------------------------
+
+map_style <- tags$style(HTML("
+  .aj-map-category-filter {
+    background: white;
+    padding: 10px 12px;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.18);
+    line-height: 1.4;
+    font-size: 13px;
+    min-width: 140px;
+    color: #2c3e50;
+  }
+
+  .aj-map-category-title {
+    font-weight: 700;
+    margin-bottom: 7px;
+    color: #2c3e50;
+  }
+
+  .aj-map-category-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 5px;
+    padding: 4px 6px;
+    border-radius: 8px;
+    color: #555555;
+    transition: background 0.15s ease, opacity 0.15s ease;
+  }
+
+  .aj-map-category-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .aj-map-category-item:hover {
+    background: #f7f7f7;
+  }
+
+  .aj-map-category-item.aj-map-active {
+    background: #f1f1f1;
+    font-weight: 700;
+    color: #2c3e50;
+    opacity: 1;
+  }
+
+  .aj-map-category-item.aj-map-faded {
+    opacity: 0.55;
+  }
+
+  .aj-map-category-dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+  }
+
+  .aj-map-popup .leaflet-popup-content-wrapper {
+    border-radius: 12px;
+    border: 1px solid #dddddd;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.22);
+  }
+
+  .aj-map-popup .leaflet-popup-content {
+    margin: 12px 14px;
+    font-family: inherit;
+  }
+
+  .aj-map-popup .leaflet-popup-tip {
+    background: white;
+  }
+
+  .aj-map-popup-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    line-height: 1.25;
+    margin-bottom: 5px;
+  }
+
+  .aj-map-popup-location {
+    font-size: 0.82rem;
+    color: #666666;
+    line-height: 1.35;
+  }
+
+  .leaflet-control-zoom a {
+    color: #2c3e50 !important;
+  }
+"))
+
+category_filter <- HTML(paste0(
+  "
+  <div class='aj-map-category-filter'>
+
+    <div class='aj-map-category-title'>Categories</div>
+
+    <div class='aj-map-category-item' data-group='Education'>
+      <span class='aj-map-category-dot' style='background:", col_education, ";'></span>
+      <span>Education</span>
+    </div>
+
+    <div class='aj-map-category-item' data-group='Research'>
+      <span class='aj-map-category-dot' style='background:", col_research, ";'></span>
+      <span>Research</span>
+    </div>
+
+    <div class='aj-map-category-item' data-group='Industry'>
+      <span class='aj-map-category-dot' style='background:", col_industry, ";'></span>
+      <span>Industry</span>
+    </div>
+
+  </div>
+  "
+))
+
+map_widget <- leaflet(
   options = leafletOptions(
     zoomControl = TRUE,
     attributionControl = FALSE
   )
 ) |>
+
+  addMapPane("industryPane", zIndex = 420) |>
+  addMapPane("educationPane", zIndex = 430) |>
+  addMapPane("researchPane", zIndex = 440) |>
+
   addPolygons(
     data = world,
     color = "#b8b8b8",
@@ -218,6 +899,7 @@ leaflet(
     fillOpacity = 1,
     opacity = 1
   ) |>
+
   addPolygons(
     data = study_countries,
     layerId = ~paste0("study-", admin),
@@ -226,7 +908,6 @@ leaflet(
     fillColor = "#d9d9d9",
     fillOpacity = 0.10,
     opacity = 1,
-    label = ~paste0("Click to highlight ", admin),
     highlightOptions = highlightOptions(
       weight = 2.2,
       color = "#555555",
@@ -240,6 +921,7 @@ leaflet(
     data = subset(places, category == "Industry"),
     lng = ~lng,
     lat = ~lat,
+    layerId = ~map_id,
     radius = ~marker_radius,
     color = col_industry,
     weight = ~marker_weight,
@@ -247,29 +929,19 @@ leaflet(
     fillOpacity = ~marker_opacity,
     opacity = 1,
     popup = ~popup,
-    label = ~name,
-    group = "Industry"
-  ) |>
-
-  addCircleMarkers(
-    data = subset(places, category == "Research"),
-    lng = ~lng,
-    lat = ~lat,
-    radius = ~marker_radius,
-    color = col_research,
-    weight = ~marker_weight,
-    fillColor = col_research,
-    fillOpacity = ~marker_opacity,
-    opacity = 1,
-    popup = ~popup,
-    label = ~name,
-    group = "Research"
+    popupOptions = popupOptions(className = "aj-map-popup"),
+    group = "Industry",
+    options = pathOptions(
+      pane = "industryPane",
+      bubblingMouseEvents = FALSE
+    )
   ) |>
 
   addCircleMarkers(
     data = subset(places, category == "Education"),
     lng = ~lng,
     lat = ~lat,
+    layerId = ~map_id,
     radius = ~marker_radius,
     color = col_education,
     weight = ~marker_weight,
@@ -277,15 +949,38 @@ leaflet(
     fillOpacity = ~marker_opacity,
     opacity = 1,
     popup = ~popup,
-    label = ~name,
-    group = "Education"
+    popupOptions = popupOptions(className = "aj-map-popup"),
+    group = "Education",
+    options = pathOptions(
+      pane = "educationPane",
+      bubblingMouseEvents = FALSE
+    )
   ) |>
 
-  addLegend(
+  addCircleMarkers(
+    data = subset(places, category == "Research"),
+    lng = ~lng,
+    lat = ~lat,
+    layerId = ~map_id,
+    radius = ~marker_radius,
+    color = col_research,
+    weight = ~marker_weight,
+    fillColor = col_research,
+    fillOpacity = ~marker_opacity,
+    opacity = 1,
+    popup = ~popup,
+    popupOptions = popupOptions(className = "aj-map-popup"),
+    group = "Research",
+    options = pathOptions(
+      pane = "researchPane",
+      bubblingMouseEvents = FALSE
+    )
+  ) |>
+
+  addControl(
+    html = category_filter,
     position = "bottomright",
-    colors = c(col_education, col_research, col_industry),
-    labels = c("Education", "Research", "Industry"),
-    opacity = 1
+    className = "aj-map-category-control"
   ) |>
 
   fitBounds(
@@ -300,6 +995,8 @@ leaflet(
     function(el, x) {
       var map = this;
       var studyLayers = [];
+      var markersById = {};
+      var allMarkers = [];
 
       function resetStudyCountries() {
         studyLayers.forEach(function(layer) {
@@ -333,10 +1030,154 @@ leaflet(
             });
           });
         }
+
+        if (
+          layer.options &&
+          layer.options.layerId &&
+          layer instanceof L.CircleMarker
+        ) {
+          markersById[layer.options.layerId] = layer;
+          allMarkers.push(layer);
+        }
       });
+
+      var panes = {
+        Education: map.getPane('educationPane'),
+        Research: map.getPane('researchPane'),
+        Industry: map.getPane('industryPane')
+      };
+
+      function showAllCategories() {
+        Object.keys(panes).forEach(function(groupName) {
+          panes[groupName].style.display = '';
+        });
+
+        map.closePopup();
+
+        var items = el.querySelectorAll('.aj-map-category-item');
+
+        items.forEach(function(item) {
+          item.classList.remove('aj-map-active');
+          item.classList.remove('aj-map-faded');
+        });
+      }
+
+      function showOnlyCategory(selectedGroup) {
+        Object.keys(panes).forEach(function(groupName) {
+          if (groupName === selectedGroup) {
+            panes[groupName].style.display = '';
+          } else {
+            panes[groupName].style.display = 'none';
+          }
+        });
+
+        map.closePopup();
+
+        var items = el.querySelectorAll('.aj-map-category-item');
+
+        items.forEach(function(item) {
+          var itemGroup = item.getAttribute('data-group');
+
+          if (itemGroup === selectedGroup) {
+            item.classList.add('aj-map-active');
+            item.classList.remove('aj-map-faded');
+          } else {
+            item.classList.remove('aj-map-active');
+            item.classList.add('aj-map-faded');
+          }
+        });
+      }
+
+      function resetMarkerStyles() {
+        allMarkers.forEach(function(marker) {
+          if (marker.options && marker.options.originalRadius) {
+            marker.setRadius(marker.options.originalRadius);
+          }
+
+          marker.setStyle({
+            weight: marker.options.originalWeight || marker.options.weight,
+            opacity: 1
+          });
+        });
+      }
+
+      allMarkers.forEach(function(marker) {
+        marker.options.originalRadius = marker.options.radius;
+        marker.options.originalWeight = marker.options.weight;
+      });
+
+      function focusMapPoint(mapId) {
+        var marker = markersById[mapId];
+
+        if (!marker) {
+          return;
+        }
+
+        showAllCategories();
+        resetMarkerStyles();
+
+        marker.setRadius((marker.options.originalRadius || marker.options.radius) + 2.5);
+        marker.setStyle({
+          weight: (marker.options.originalWeight || marker.options.weight) + 1,
+          opacity: 1
+        });
+
+        var latlng = marker.getLatLng();
+
+        map.flyTo(latlng, Math.max(map.getZoom(), 5), {
+          animate: true,
+          duration: 0.6
+        });
+
+        setTimeout(function() {
+          marker.openPopup();
+        }, 650);
+
+        setTimeout(function() {
+          resetMarkerStyles();
+        }, 2200);
+
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+
+      var categoryFilter = el.querySelector('.aj-map-category-filter');
+
+      if (categoryFilter) {
+        L.DomEvent.disableClickPropagation(categoryFilter);
+        L.DomEvent.disableScrollPropagation(categoryFilter);
+
+        var items = categoryFilter.querySelectorAll('.aj-map-category-item');
+
+        items.forEach(function(item) {
+          item.addEventListener('click', function(event) {
+            event.stopPropagation();
+
+            var selectedGroup = item.getAttribute('data-group');
+            showOnlyCategory(selectedGroup);
+          });
+        });
+      }
+
+      map.on('click', function() {
+        showAllCategories();
+      });
+
+      window.addEventListener('academicJourneySelect', function(event) {
+        if (event.detail && event.detail.mapId) {
+          focusMapPoint(event.detail.mapId);
+        }
+      });
+
+      showAllCategories();
     }
     "
   )
+
+tagList(
+  map_style,
+  map_widget
+)
 ```
-
-

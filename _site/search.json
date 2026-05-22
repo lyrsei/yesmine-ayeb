@@ -7,18 +7,18 @@
     "text": "[Placeholder]"
   },
   {
-    "objectID": "academic-journey.html",
-    "href": "academic-journey.html",
-    "title": "Academic Journey",
+    "objectID": "data-analysis.html",
+    "href": "data-analysis.html",
+    "title": "Learning R & Data Science",
     "section": "",
-    "text": "[Placeholder: Timeline]\n[Map] V4"
+    "text": "Although working with R feels much more natural to me now, learning it was not always easy. The breakthrough for me what when I signed up for Kane’s Data Science Course. What made the bootcamp meaningful was its collaborative environment. The classes brought together people with different levels of experience, which made learning feel more accessible and encouraging. Seeing how others approached the same problems helped me understand how to think more clearly about data analysis. As a final project for the bootcamp, I created my first R-based project: Phyllosphere Microbiome. Looking back at it now, I can clearly see things I would improve, both in the analysis and in the presentation. Still, it remains an important milestone for me.\nSome resources that I have found incredibly useful along the way include From Data to Viz, a practical guide that helps users choose suitable graph types based on their data structure while also pointing out common visualization pitfalls, and ggplot2 Uncharted, an online course focused on strengthening data visualization skills in R through ggplot2.\nIn the following months, I plan to continue improving my understanding of statistics, moving from frequentist approaches toward Bayesian thinking. I will be sharing small projects made along the way as part of this learning process."
   },
   {
-    "objectID": "academic-journey.html#places-that-shaped-my-academic-and-professional-path",
-    "href": "academic-journey.html#places-that-shaped-my-academic-and-professional-path",
-    "title": "Academic Journey",
-    "section": "Places That Shaped My Academic and Professional Path",
-    "text": "Places That Shaped My Academic and Professional Path"
+    "objectID": "academic-journey.html",
+    "href": "academic-journey.html",
+    "title": "My Path in Plant Science",
+    "section": "",
+    "text": "My academic journey began at the Bizerte Preparatory Engineering Institute, where my interest in plant biology first started to take shape through the foundational courses I had taken there. This growing curiosity became the main reason I chose to pursue agronomy after the national examination, within the Tunisian Grandes Écoles system, which guides students toward specialized engineering schools based on their ranking and academic orientation. I then joined the Higher Institute of Agronomic Sciences of Chott Mariem, where I specialized in Horticultural Production and developed a stronger connection between plant science, crop management, and applied agronomy. A key step in this journey was my selection for the Erasmus+ exchange program at Agrocampus Ouest Rennes-Angers in France. This experience introduced me to biotechnology-oriented laboratory training and encouraged me to think about plant science from a broader perspective. It also strengthened my interest in multicultural academic environments, where scientific learning is enriched by cultural exchange and collaboration.\nMy graduation project on Rosa centifolia was motivated by my interest in high-value horticultural species and the role of plant biotechnology in improving propagation and production practices. Working with tissue culture allowed me to explore how laboratory-based techniques can address practical challenges in ornamental and aromatic plant production. Later, my MSc research at the Mediterranean Agronomic Institute of Chania offered a continuation of this path, linking molecular plant biology with agronomic applications through the study of tomato ripening, fruit quality, and postharvest behaviour.\nThe following timeline and map highlight the places, institutions, and experiences that have shaped my development as a plant scientist.\n\n\n\n\n\n\n\nIPEIB\n\n\n\n\n\n\n\n\n\nISACM\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSanlucar\n\n\n\n\n\n\n\n\n\nAzib Flower\n\n\n\n\n\n\n\n\n\nBioverte\n\n\n\n\nACO\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHS Lab\n\n\n\n\nMAICh\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPMBB Lab"
   },
   {
     "objectID": "continuing-education.html",
@@ -32,6 +32,6 @@
     "href": "index.html",
     "title": "Welcome to my personal website!",
     "section": "",
-    "text": "Welcome to my personal website!\nI am Yesmine Ayeb, an agronomy engineer currently pursuing an MSc in Horticultural Genetics & Biotechnology at CIHEAM MAICh in Chania, Greece.\nMy background combines horticultural production and plant molecular biology. Through my studies and research experiences, I have developed a strong interest in plant responses to stress and the phytomicrobibome, although I am often intrigued by a variety of other plant-related topics too.\nThis website is still under construction and getting updated in the rare free moments I have as a fun side project. If you have any feedback, please don’t hesitate to reach out.\nContact\nEmail: ayeb.yesmine@gmail.com\nLinkedIn: linkedin.com/in/yesmine-ayeb\nBluesky: @lyrsei.bsky.social"
+    "text": "Welcome to my personal website!\nI am Yesmine Ayeb, an Agronomy Engineer currently pursuing an MSc in Horticultural Genetics & Biotechnology at CIHEAM MAICh in Chania, Greece.\nMy background combines horticultural production and plant molecular biology. Through my studies and research experiences, I have developed a strong interest in plant responses to stress and the phytomicrobibome, although I am often intrigued by a variety of other plant-related topics too.\nThis website is still under construction and getting updated in the rare free moments I have (aka waiting for incubation to finish). If you have any feedback, please don’t hesitate to reach out.\nContact\nEmail: ayeb.yesmine@gmail.com\nLinkedIn: linkedin.com/in/yesmine-ayeb\nBluesky: @lyrsei.bsky.social"
   }
 ]
