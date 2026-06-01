@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Continuing Education – Yesmine Ayeb</title>
+<title>Training Network – Yesmine Ayeb</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -54,12 +54,20 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="site_libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
+
+<script src="site_libs/vis-9.1.0/vis-network.min.js"></script>
+
+<script src="site_libs/visNetwork-binding-2.1.4/visNetwork.js"></script>
+
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -117,15 +125,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Continuing Education</h1>
+<h1 class="title">Training Network</h1>
 </div>
 
 
@@ -142,68 +148,74 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>My learning has continued beyond formal academic training through short courses, workshops and seminars.<br>
-Links to the certificates are available in the <a href="https://www.linkedin.com/in/yesmine-ayeb/details/certifications/">Licenses &amp; certifications</a> section of my LinkedIn profile.</p>
-<p><strong>Plant Cell Biology</strong></p>
-<ul>
-<li>Plant Metabolism | May 2026<br>
-<em>American Society of Plant Biologists</em></li>
-<li>Plant Cell Polarity | Sep 2023<br>
-<em>American Society of Plant Biologists</em></li>
-<li>Receptor Signalling: Function, Dynamics and Evolution | Mar 2026<br>
-<em>Global Plant Council</em></li>
-<li>Third Plant Cell Atlas Symposium | Aug 2024<br>
-<em>Plant Cell Atlas</em></li>
-<li>Spatial Omics | May 2024<br>
-<em>Plant Cell Atlas</em></li>
-<li>Introduction to 2D and 3D Segmentation with MorphoGraphX | Apr 2026<br>
-<em>Plant Cell Atlas</em></li>
-</ul>
-<p><strong>Plant Stress Physiology &amp; Environmental Adaptation</strong></p>
-<ul>
-<li>Plant Responses to Abiotic Stress | Feb 2023<br>
-<em>American Society of Plant Biologists</em></li>
-<li>Innovative Approaches to Understanding Plant Adaptation to Abiotic Stress | Feb 2026<br>
-<em>Global Plant Council</em></li>
-<li>Biotic and Abiotic Stress Distinctly Drive the Phyllosphere Microbial Community Structure | Sep 2023<br>
-<em>International Phytobiomes Alliance</em></li>
-</ul>
-<p><strong>Agriculture &amp; Sustainability</strong></p>
-<ul>
-<li>Sustainable Agricultural Practices | Jun 2024<br>
-<em>Tunisia Better Training Program</em></li>
-<li>Aquaponics | Nov 2023<br>
-<em>Tunisie Aquaponie</em></li>
-<li>Photosynthetic Microorganisms for Sustainable Development | Nov 2023<br>
-<em>Institute for Biological Systems</em></li>
-</ul>
-<p><strong>Analytical Techniques</strong></p>
-<ul>
-<li>Headspace Solid Phase Microextraction Coupled to GC/MS | May 2024<br>
-<em>Centre de Biotechnologie de Borj Cédria</em></li>
-</ul>
-<p><strong>Data Science</strong></p>
-<ul>
-<li>Data Reproducibility Workshop | Feb 2026<br>
-<em>Plant Cell Atlas</em></li>
-</ul>
-<p><strong>Quality, Safety &amp; Management Systems</strong></p>
-<ul>
-<li>Quality, Health, Safety and Environment (QHSE) | Aug 2023<br>
-<em>Spectrum Training Center</em></li>
-<li>ISO/IEC 17025:2017 Laboratory Management Systems | Jan 2024<br>
-<em>Spectrum Training Center</em></li>
-<li>ISO 19011:2018 Auditing Management Systems | Aug 2023<br>
-<em>Spectrum Training Center</em></li>
-<li>ISO 45001:2018 Occupational Health and Safety Management Systems | Aug 2023<br>
-<em>Spectrum Training Center</em></li>
-<li>ISO 22000:2018 Food Safety Management Systems | Dec 2019<br>
-<em>Univers Formation et Consulting</em></li>
-<li>ISO 9001:2015 Quality Management Systems | Aug 2023<br>
-<em>Spectrum Training Center</em></li>
-<li>ISO 14001:2015 Environmental Management Systems | Aug 2023<br>
-<em>Spectrum Training Center</em></li>
-</ul>
+<p>My learning has continued beyond formal academic training through short courses, workshops, and seminars in plant biology, stress physiology, sustainable agriculture, analytical techniques, data science, and quality systems.</p>
+<p>This interactive network provides a visual overview of these training activities. while links to the certificates can be found in the <a href="https://www.linkedin.com/in/yesmine-ayeb/details/certifications/">Licenses &amp; Certifications</a> section of my LinkedIn profile.</p>
+<style>
+.training-popup {
+  display: none;
+  position: fixed;
+  width: 330px;
+  background: white;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  padding: 13px 14px 14px 14px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+  text-align: left;
+  z-index: 999999;
+  font-family: inherit;
+}
+
+.training-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #777777;
+  padding: 2px 4px;
+}
+
+.training-popup-close:hover {
+  color: #222222;
+}
+
+.training-popup-theme {
+  font-size: 0.73rem;
+  color: #555555;
+  background: #f4f4f4;
+  padding: 3px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 9px;
+  padding-right: 22px;
+}
+
+.training-popup-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2c3e50;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.training-popup-info {
+  font-size: 0.84rem;
+  color: #666666;
+  line-height: 1.45;
+}
+</style>
+<div id="training-popup" class="training-popup">
+
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-02d60b2ca639afb46834" style="width:100%;height:720px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-02d60b2ca639afb46834">{"x":{"nodes":{"id":["hub_1","hub_2","hub_3","hub_4","hub_5","hub_6","course_1","course_2","course_3","course_4","course_5","course_6","course_7","course_8","course_9","course_10","course_11","course_12","course_13","course_14","course_15","course_16","course_17","course_18","course_19","course_20","course_21"],"label":["Plant Cell\nBiology","Plant Stress\nPhysiology","Sustainable\nAgriculture","Analytical\nTechniques","Data\nScience","Quality\nSystems","","","","","","","","","","","","","","","","","","","","",""],"node_type":["hub","hub","hub","hub","hub","hub","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite","satellite"],"theme_name":["Plant Cell Biology","Plant Stress Physiology","Sustainable Agriculture","Analytical Techniques","Data Science","Quality Systems","Plant Cell Biology","Plant Cell Biology","Plant Cell Biology","Plant Cell Biology","Plant Cell Biology","Plant Cell Biology","Plant Stress Physiology","Plant Stress Physiology","Plant Stress Physiology","Sustainable Agriculture","Sustainable Agriculture","Sustainable Agriculture","Analytical Techniques","Data Science","Quality Systems","Quality Systems","Quality Systems","Quality Systems","Quality Systems","Quality Systems","Quality Systems"],"course":[null,null,null,null,null,null,"Plant Metabolism","Plant Cell Polarity","Receptor Signalling: Function, Dynamics and Evolution","Third Plant Cell Atlas Symposium","Spatial Omics","Introduction to 2D and 3D Segmentation with MorphoGraphX","Plant Responses to Abiotic Stress","Innovative Approaches to Understanding Plant Adaptation to Abiotic Stress","Biotic and Abiotic Stress Distinctly Drive the Phyllosphere Microbial Community Structure","Sustainable Agricultural Practices","Aquaponics","Photosynthetic Microorganisms for Sustainable Development","Headspace Solid Phase Microextraction Coupled to GC/MS","Data Reproducibility Workshop","Quality, Health, Safety and Environment (QHSE)","ISO/IEC 17025:2017 Laboratory Management Systems","ISO 19011:2018 Auditing Management Systems","ISO 45001:2018 Occupational Health and Safety Management Systems","ISO 22000:2018 Food Safety Management Systems","ISO 9001:2015 Quality Management Systems","ISO 14001:2015 Environmental Management Systems"],"date":[null,null,null,null,null,null,"May 2026","Sep 2023","Mar 2026","Aug 2024","May 2024","Apr 2026","Feb 2023","Feb 2026","Sep 2023","Jun 2024","Nov 2023","Nov 2023","May 2024","Feb 2026","Aug 2023","Jan 2024","Aug 2023","Aug 2023","Dec 2019","Aug 2023","Aug 2023"],"provider":[null,null,null,null,null,null,"American Society of Plant Biologists","American Society of Plant Biologists","Global Plant Council","Plant Cell Atlas","Plant Cell Atlas","Plant Cell Atlas","American Society of Plant Biologists","Global Plant Council","International Phytobiomes Alliance","Tunisia Better Training Program","Tunisie Aquaponie","Institute for Biological Systems","Centre de Biotechnologie de Borj Cédria","Plant Cell Atlas","Spectrum Training Center","Spectrum Training Center","Spectrum Training Center","Spectrum Training Center","Univers Formation et Consulting","Spectrum Training Center","Spectrum Training Center"],"x":[-340,360,0,260,170,-240,-220,-280,-400,-460,-400.0000000000001,-280,470,305,304.9999999999999,105,-52.49999999999998,-52.50000000000005,355,265,-125,-168.2986727862456,-265.5899074049761,-343.6114198087782,-343.6114198087782,-265.5899074049762,-168.2986727862457],"y":[-90,50,-270,-160,220,210,-90,13.92304845413263,13.92304845413264,-89.99999999999999,-193.9230484541326,-193.9230484541326,50,145.2627944162883,-45.26279441628822,-270,-179.0673326026339,-360.932667397366,-160,220,210,299.9106204838234,322.1167099009097,259.8966299985192,160.1033700014808,97.88329009909029,120.0893795161766],"shape":["circle","circle","circle","circle","circle","circle","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot"],"size":[38,38,38,38,38,38,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15],"mass":[6,6,6,6,6,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fixed":[true,true,true,true,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],"physics":[false,false,false,false,false,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],"color.background":["#E7D393","#87A07B","#5C6756","#35526C","#4F8495","#87604E","#F3E8BE","#F3E8BE","#F3E8BE","#F3E8BE","#F3E8BE","#F3E8BE","#B9C8B2","#B9C8B2","#B9C8B2","#97A18F","#97A18F","#97A18F","#8EA3B5","#9FC0CA","#C2A393","#C2A393","#C2A393","#C2A393","#C2A393","#C2A393","#C2A393"],"color.border":["#CBB66F","#6F8664","#465041","#263B4D","#3D6876","#6A4A3B","#D8C27F","#D8C27F","#D8C27F","#D8C27F","#D8C27F","#D8C27F","#87A07B","#87A07B","#87A07B","#5C6756","#5C6756","#5C6756","#35526C","#4F8495","#87604E","#87604E","#87604E","#87604E","#87604E","#87604E","#87604E"],"color.highlight.background":["#E7D393","#87A07B","#5C6756","#35526C","#4F8495","#87604E","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF"],"color.highlight.border":["#CBB66F","#6F8664","#465041","#263B4D","#3D6876","#6A4A3B","#D8C27F","#D8C27F","#D8C27F","#D8C27F","#D8C27F","#D8C27F","#87A07B","#87A07B","#87A07B","#5C6756","#5C6756","#5C6756","#35526C","#4F8495","#87604E","#87604E","#87604E","#87604E","#87604E","#87604E","#87604E"],"borderWidth":[3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],"font.size":[16,16,16,16,16,16,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12],"font.color":["#263322","#263322","#FFFFFF","#FFFFFF","#FFFFFF","#FFFFFF","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333","#333333"],"font.face":["Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial","Arial"]},"edges":{"from":["hub_1","hub_1","hub_1","hub_1","hub_1","hub_1","hub_2","hub_2","hub_2","hub_3","hub_3","hub_3","hub_4","hub_5","hub_6","hub_6","hub_6","hub_6","hub_6","hub_6","hub_6"],"to":["course_1","course_2","course_3","course_4","course_5","course_6","course_7","course_8","course_9","course_10","course_11","course_12","course_13","course_14","course_15","course_16","course_17","course_18","course_19","course_20","course_21"],"color":["#CBB66F","#CBB66F","#CBB66F","#CBB66F","#CBB66F","#CBB66F","#6F8664","#6F8664","#6F8664","#5C6756","#5C6756","#5C6756","#35526C","#4F8495","#87604E","#87604E","#87604E","#87604E","#87604E","#87604E","#87604E"],"width":[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"smooth":false,"shadow":false},"interaction":{"dragNodes":true,"dragView":true,"hover":false,"zoomView":true,"zoomSpeed":1},"physics":{"solver":"forceAtlas2Based","stabilization":true,"enabled":true,"forceAtlas2Based":{"gravitationalConstant":-65,"centralGravity":0.005,"springLength":110,"springConstant":0.08,"damping":0.55,"avoidOverlap":0.7}}},"groups":null,"width":"100%","height":"720px","idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"white","highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);","events":{"click":"\n      function(params) {\n        var popup = document.getElementById('training-popup');\n\n        function escapeHtml(value) {\n          if (value === null || value === undefined) return '';\n          return String(value)\n            .replace(/&/g, '&amp;')\n            .replace(/<\/g, '&lt;')\n            .replace(/>/g, '&gt;')\n            .replace(/\"/g, '&quot;')\n            .replace(/'/g, '&#039;');\n        }\n\n        function closePopup() {\n          popup.style.display = 'none';\n          popup.innerHTML = '';\n        }\n\n        function positionPopup(params) {\n          var networkElement = this.body.container;\n          var rect = networkElement.getBoundingClientRect();\n\n          var margin = 12;\n          var clickX = rect.left + params.pointer.DOM.x;\n          var clickY = rect.top + params.pointer.DOM.y;\n\n          popup.style.display = 'block';\n\n          var popupWidth = popup.offsetWidth;\n          var popupHeight = popup.offsetHeight;\n\n          var left = clickX + 14;\n          var top = clickY - popupHeight / 2;\n\n          if (left + popupWidth > window.innerWidth - margin) {\n            left = clickX - popupWidth - 14;\n          }\n\n          if (top < margin) {\n            top = margin;\n          }\n\n          if (top + popupHeight > window.innerHeight - margin) {\n            top = window.innerHeight - popupHeight - margin;\n          }\n\n          popup.style.left = left + 'px';\n          popup.style.top = top + 'px';\n        }\n\n        if (params.nodes.length === 0) {\n          closePopup();\n          return;\n        }\n\n        var clickedNodeId = params.nodes[0];\n        var clickedNode = this.body.data.nodes.get(clickedNodeId);\n\n        if (clickedNode.node_type !== 'satellite') {\n          closePopup();\n          return;\n        }\n\n        popup.innerHTML =\n          '<button type=\"button\" class=\"training-popup-close\" aria-label=\"Close\">×<\/button>' +\n          '<div class=\"training-popup-theme\">' +\n            escapeHtml(clickedNode.theme_name) +\n          '<\/div>' +\n          '<div class=\"training-popup-title\">' +\n            escapeHtml(clickedNode.course) +\n          '<\/div>' +\n          '<div class=\"training-popup-info\">' +\n            '<div><strong>Date:<\/strong> ' + escapeHtml(clickedNode.date) + '<\/div>' +\n            '<div><strong>Provider:<\/strong> ' + escapeHtml(clickedNode.provider) + '<\/div>' +\n          '<\/div>';\n\n        positionPopup.call(this, params);\n\n        var closeButton = popup.querySelector('.training-popup-close');\n\n        if (closeButton) {\n          closeButton.addEventListener('click', function(event) {\n            event.stopPropagation();\n            closePopup();\n          });\n        }\n      }\n    "}},"evals":["events.click"],"jsHooks":[]}</script>
+</div>
+</div>
 
 
 
