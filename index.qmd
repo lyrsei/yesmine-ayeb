@@ -1,19 +1,59 @@
 ---
 pagetitle: "Yesmine Ayeb"
-title-block-style: none
 toc: false
+page-layout: full
 ---
 
-# Welcome to my personal website!
+<div class="homepage">
 
-I am Yesmine Ayeb, an Agronomy Engineer currently pursuing an MSc in Horticultural Genetics & Biotechnology at CIHEAM MAICh in Chania, Greece.
+<div class="intro-column">
 
-My background combines horticultural production and plant molecular biology. Through my studies and research experiences, I have developed a strong interest in plant responses to stress and the phytomicrobibome, although I am often intrigued by a variety of other plant-related topics too.
+<div class="intro-left">
 
-This website is still under construction and getting updated in the rare free moments I have (aka waiting for incubation to finish). If you have any feedback, please don't hesitate to reach out.
+<div class="name-title">
+Yesmine Ayeb
+</div>
 
-**Contact** \
-*Email:* [ayeb.yesmine@gmail.com](mailto:ayeb.yesmine@gmail.com)  
-*LinkedIn:* [linkedin.com/in/yesmine-ayeb](https://www.linkedin.com/in/yesmine-ayeb)  
-*Bluesky:* [@lyrsei.bsky.social](https://bsky.app/profile/lyrsei.bsky.social)  
+<div class="job-title">
+Agronomy Engineer
+</div>
 
+<div class="intro-text">
+
+<p>
+I am Yesmine Ayeb, an Agronomy Engineer with an MSc in Horticultural Genetics & Biotechnology.
+</p>
+
+<p>
+My background combines horticultural production and plant molecular biology. Through my studies and research experiences, I have developed a strong interest in plant responses to stress and the phytomicrobiome, although I am often intrigued by a variety of other plant-related topics too.
+</p>
+
+<p>
+This website is still under construction. If you have any feedback, please don't hesitate to reach out.
+</p>
+
+</div>
+
+<div class="contact-links">
+
+<a href="mailto:ayeb.yesmine@gmail.com">{{< fa envelope >}}</a>
+
+<a href="https://www.linkedin.com/in/yesmine-ayeb">{{< fa brands linkedin >}}</a>
+
+<a href="https://bsky.app/profile/lyrsei.bsky.social">{{< fa brands bluesky >}}</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="photo-column">
+
+<img src="images/profile.jpg"
+     class="profile-photo"
+     alt="Yesmine Ayeb">
+
+</div>
+
+</div>

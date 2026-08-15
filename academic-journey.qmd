@@ -5,9 +5,18 @@ toc: false
 ---
 My academic journey began at the Bizerte Preparatory Engineering Institute, where my interest in plant biology first started to take shape through the foundational courses I had taken there. This growing curiosity became the main reason I chose to pursue agronomy after the national examination, within the Tunisian Grandes Écoles system, which guides students toward specialized engineering schools based on their ranking and academic orientation. I then joined the Higher Institute of Agronomic Sciences of Chott Mariem, where I specialized in Horticultural Production and developed a stronger connection between plant science, crop management, and applied agronomy. A key step in this journey was my selection for the Erasmus+ exchange program at Agrocampus Ouest Rennes-Angers in France. This experience introduced me to biotechnology-oriented laboratory training and encouraged me to think about plant science from a broader perspective. It also strengthened my interest in multicultural academic environments, where scientific learning is enriched by cultural exchange and collaboration.
 
-My graduation project on Rosa centifolia was motivated by my interest in high-value horticultural species and the role of plant biotechnology in improving propagation and production practices. Working with tissue culture allowed me to explore how laboratory-based techniques can address practical challenges in ornamental and aromatic plant production. Later, my MSc research at the Mediterranean Agronomic Institute of Chania offered a  continuation of this path, linking molecular plant biology with agronomic applications through the study of tomato ripening, fruit quality, and postharvest behaviour.
+My graduation project on Rosa centifolia was motivated by my interest in high-value horticultural species and the role of plant biotechnology in improving propagation and production practices. Working with tissue culture allowed me to explore how laboratory-based techniques can address practical challenges in ornamental and aromatic plant production. Later, my MSc research at the Mediterranean Agronomic Institute of Chania offered a continuation of this path, linking molecular plant biology with agronomic applications through the study of tomato ripening, fruit quality, and postharvest behaviour.
 
-The following timeline and map highlight the places, institutions, and experiences that have shaped my development as a plant scientist.
+The following interactive timeline and map highlight the places, institutions, and experiences that have shaped my development as a plant scientist.
+
+<style>
+/* Academic Journey only: keep timeline and map titles dark */
+.aj3-name,
+.aj3-popup-title,
+.aj-map-popup-title {
+  color: #2c3e50 !important;
+}
+</style>
 
 ```{r}
 #| echo: false
@@ -37,8 +46,8 @@ timeline_items <- data.frame(
     "Jul 2021",
     "Sep 2021 - Feb 2022",
     "Jun 2022 - Dec 2022",
-    "Sep 2024 - Present",
-    "Oct 2025 - Present"
+    "Sep 2024 - Jun 2026",
+    "Oct 2025 - Jun 2026"
   ),
 
   title = c(

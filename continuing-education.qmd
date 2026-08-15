@@ -1,7 +1,634 @@
 ---
-title: "Continuing Education"
-format: html
+title: "Training Network"
+format:
+  html:
+    toc: false
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
 
-[Placeholder]
+My learning has continued beyond formal academic training through short courses, workshops, and seminars in plant biology, analytical methods, sustainable agriculture, and quality systems.
 
+This interactive network provides a visual overview of these training activities. Links to the certificates can be found in the [Licenses & Certifications](https://www.linkedin.com/in/yesmine-ayeb/details/certifications/) section of my LinkedIn profile.
+
+<style>
+.vis-network {
+  border: 1px solid #828282;
+  border-radius: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.training-popup {
+  display: none;
+  position: fixed;
+  width: 330px;
+  background: white;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  padding: 13px 14px 14px 14px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+  text-align: left;
+  z-index: 999999;
+  font-family: inherit;
+}
+
+.training-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #777777;
+  padding: 2px 4px;
+}
+
+.training-popup-close:hover {
+  color: #222222;
+}
+
+.training-popup-theme {
+  font-size: 0.73rem;
+  color: #555555;
+  background: #f4f4f4;
+  padding: 3px 8px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 9px;
+  padding-right: 22px;
+}
+
+.training-popup-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #2c3e50;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.training-popup-info {
+  font-size: 0.84rem;
+  color: #666666;
+  line-height: 1.45;
+}
+</style>
+
+<div id="training-popup" class="training-popup"></div>
+
+```{r}
+library(dplyr)
+library(tibble)
+library(visNetwork)
+
+# -----------------------------
+# 1. Data
+# -----------------------------
+
+training <- tribble(
+  ~theme, ~course, ~date, ~provider,
+
+  "Quality Systems", "ISO 22000:2018 Food Safety Management Systems", "Dec 2019", "Univers Formation et Consulting",
+
+  "Plant Biology", "Plant Responses to Abiotic Stress", "Feb 2023", "American Society of Plant Biologists",
+
+  "Quality Systems", "Quality, Health, Safety and Environment (QHSE)", "Aug 2023", "Spectrum Training Center",
+  "Quality Systems", "ISO 19011:2018 Auditing Management Systems", "Aug 2023", "Spectrum Training Center",
+  "Quality Systems", "ISO 45001:2018 Occupational Health and Safety Management Systems", "Aug 2023", "Spectrum Training Center",
+  "Quality Systems", "ISO 9001:2015 Quality Management Systems", "Aug 2023", "Spectrum Training Center",
+  "Quality Systems", "ISO 14001:2015 Environmental Management Systems", "Aug 2023", "Spectrum Training Center",
+
+  "Plant Biology", "Plant Cell Polarity", "Sep 2023", "American Society of Plant Biologists",
+  "Plant Biology", "Biotic and Abiotic Stress Distinctly Drive the Phyllosphere Microbial Community Structure", "Sep 2023", "International Phytobiomes Alliance",
+
+  "Sustainable Agriculture", "Aquaponics", "Nov 2023", "Tunisie Aquaponie",
+  "Sustainable Agriculture", "Photosynthetic Microorganisms for Sustainable Development", "Nov 2023", "Institute for Biological Systems",
+
+  "Quality Systems", "ISO/IEC 17025:2017 Laboratory Management Systems", "Jan 2024", "Spectrum Training Center",
+
+  "Analytical Methods", "Spatial Omics", "May 2024", "Plant Cell Atlas",
+  "Analytical Methods", "Headspace Solid Phase Microextraction Coupled to GC/MS", "May 2024", "Centre de Biotechnologie de Borj Cédria",
+
+  "Sustainable Agriculture", "Sustainable Agricultural Practices", "Jun 2024", "Tunisia Better Training Program",
+
+  "Plant Biology", "Third Plant Cell Atlas Symposium", "Aug 2024", "Plant Cell Atlas",
+
+  "Plant Biology", "Innovative Approaches to Understanding Plant Adaptation to Abiotic Stress", "Feb 2026", "Global Plant Council",
+
+  "Analytical Methods", "Data Reproducibility Workshop", "Feb 2026", "Plant Cell Atlas",
+
+  "Plant Biology", "Receptor Signalling: Function, Dynamics and Evolution", "Mar 2026", "Global Plant Council",
+
+  "Analytical Methods", "Introduction to 2D and 3D Segmentation with MorphoGraphX", "Apr 2026", "Plant Cell Atlas",
+
+  "Plant Biology", "Plant Metabolism", "May 2026", "American Society of Plant Biologists",
+  "Plant Biology", "Wild Seeds in Focus: Science and Digital Innovation", "May 2026", "ISTA - International Seed Testing Association",
+
+  "Analytical Methods", "Genomics for Educators and Enthusiasts", "May 2026", "EMBL - European Molecular Biology Laboratory"
+)
+
+# -----------------------------
+# 2. Provider labels
+# Satellite nodes use short provider badges.
+# Popups use full provider names.
+# -----------------------------
+
+training <- training %>%
+  mutate(
+    provider_badge = case_when(
+      provider == "American Society of Plant Biologists" ~ "ASPB",
+      provider == "Global Plant Council" ~ "GPC",
+      provider == "Plant Cell Atlas" ~ "PCA",
+      provider == "International Phytobiomes Alliance" ~ "IPA",
+      provider == "Tunisie Aquaponie" ~ "TA",
+      provider == "Institute for Biological Systems" ~ "IBS",
+      provider == "Spectrum Training Center" ~ "STC",
+      provider == "Univers Formation et Consulting" ~ "UFC",
+      provider == "Centre de Biotechnologie de Borj Cédria" ~ "CBBC",
+      provider == "Tunisia Better Training Program" ~ "TBTP",
+      provider == "ISTA - International Seed Testing Association" ~ "ISTA",
+      provider == "EMBL - European Molecular Biology Laboratory" ~ "EMBL",
+      TRUE ~ "CE"
+    ),
+    provider_display = case_when(
+      provider == "ISTA - International Seed Testing Association" ~ "International Seed Testing Association",
+      provider == "EMBL - European Molecular Biology Laboratory" ~ "European Molecular Biology Laboratory",
+      TRUE ~ provider
+    )
+  )
+
+# -----------------------------
+# 3. Theme colors
+# Palette:
+# 904869, B43E44, DB9344, 486596
+# -----------------------------
+
+theme_colors <- tribble(
+  ~theme, ~hub_bg, ~hub_border, ~satellite_bg, ~satellite_border, ~edge_color, ~font_color,
+
+  "Quality Systems",
+  "#904869", "#6F344F", "#D7AFC0", "#904869", "#904869", "#FFFFFF",
+
+  "Plant Biology",
+  "#B43E44", "#8E2F35", "#E5AEB1", "#B43E44", "#B43E44", "#FFFFFF",
+
+  "Analytical Methods",
+  "#486596", "#344A70", "#B7C5DD", "#486596", "#486596", "#FFFFFF",
+
+  "Sustainable Agriculture",
+  "#DB9344", "#B47332", "#F0C99D", "#DB9344", "#DB9344", "#FFFFFF"
+)
+
+# -----------------------------
+# 4. Hub positions
+# In visNetwork, lower y values appear higher on the page.
+# Top row = most relevant to research path.
+# Lower row = supporting/secondary areas.
+# -----------------------------
+
+hub_positions <- tribble(
+  ~theme, ~x, ~y,
+
+  "Plant Biology", -300, -210,
+  "Analytical Methods", 270, -210,
+  "Quality Systems", -300, 170,
+  "Sustainable Agriculture", 270, 150
+)
+
+# -----------------------------
+# 5. Hub labels inside circles
+# -----------------------------
+
+hub_label <- function(x) {
+  case_when(
+    x == "Plant Biology" ~ "Plant\nBiology",
+    x == "Quality Systems" ~ "Quality\nSystems",
+    x == "Analytical Methods" ~ "Analytical\nMethods",
+    x == "Sustainable Agriculture" ~ "Sustainable\nAgriculture",
+    TRUE ~ x
+  )
+}
+
+# -----------------------------
+# 6. Hub nodes
+# Hubs are pinned; satellites move with physics.
+# -----------------------------
+
+hub_nodes <- training %>%
+  distinct(theme) %>%
+  left_join(theme_colors, by = "theme") %>%
+  left_join(hub_positions, by = "theme") %>%
+  mutate(
+    id = paste0("hub_", row_number()),
+    label = hub_label(theme),
+    node_type = "hub",
+    theme_name = theme,
+
+    course = NA_character_,
+    date = NA_character_,
+    provider_display = NA_character_,
+
+    shape = "circle",
+    size = case_when(
+      theme == "Plant Biology" ~ 45,
+      theme == "Quality Systems" ~ 42,
+      theme == "Analytical Methods" ~ 42,
+      theme == "Sustainable Agriculture" ~ 43,
+      TRUE ~ 40
+    ),
+    mass = 6,
+
+    fixed = TRUE,
+    physics = FALSE,
+
+    color.background = hub_bg,
+    color.border = hub_border,
+    color.highlight.background = hub_bg,
+    color.highlight.border = hub_border,
+
+    borderWidth = 3,
+
+    font.size = 16,
+    font.color = font_color,
+    font.face = "Arial",
+
+    base_bg = hub_bg,
+    base_border = hub_border,
+    base_font_color = font_color,
+    base_border_width = borderWidth
+  )
+
+# -----------------------------
+# 7. Satellite nodes
+# Satellites show provider initials.
+# -----------------------------
+
+satellite_nodes <- training %>%
+  left_join(theme_colors, by = "theme") %>%
+  left_join(
+    hub_nodes %>%
+      select(theme, hub_id = id, hub_x = x, hub_y = y),
+    by = "theme"
+  ) %>%
+  group_by(theme) %>%
+  mutate(
+    satellite_number = row_number(),
+    total_satellites = n(),
+
+    angle = 2 * pi * (satellite_number - 1) / total_satellites,
+
+    start_radius = case_when(
+      theme == "Plant Biology" ~ 145,
+      theme == "Quality Systems" ~ 135,
+      theme == "Analytical Methods" ~ 120,
+      theme == "Sustainable Agriculture" ~ 110,
+      TRUE ~ 115
+    ),
+
+    x = hub_x + start_radius * cos(angle),
+    y = hub_y + start_radius * sin(angle)
+  ) %>%
+  ungroup() %>%
+  mutate(
+    id = paste0("course_", row_number()),
+    label = provider_badge,
+    node_type = "satellite",
+    theme_name = theme,
+
+    shape = "circle",
+    size = 19,
+    mass = 1,
+
+    fixed = FALSE,
+    physics = TRUE,
+
+    color.background = satellite_bg,
+    color.border = satellite_border,
+    color.highlight.background = "#FFFFFF",
+    color.highlight.border = satellite_border,
+
+    borderWidth = 2,
+
+    font.size = case_when(
+      nchar(provider_badge) <= 2 ~ 12,
+      nchar(provider_badge) == 3 ~ 10,
+      TRUE ~ 9
+    ),
+    font.color = "#333333",
+    font.face = "Arial",
+
+    base_bg = satellite_bg,
+    base_border = satellite_border,
+    base_font_color = "#333333",
+    base_border_width = borderWidth
+  )
+
+# -----------------------------
+# 8. Nodes table
+# -----------------------------
+
+nodes <- bind_rows(
+  hub_nodes %>%
+    select(
+      id, label, node_type, theme_name,
+      course, date, provider_display,
+      x, y,
+      shape, size, mass,
+      fixed, physics,
+      color.background, color.border,
+      color.highlight.background, color.highlight.border,
+      borderWidth,
+      font.size, font.color, font.face,
+      base_bg, base_border, base_font_color, base_border_width
+    ),
+
+  satellite_nodes %>%
+    select(
+      id, label, node_type, theme_name,
+      course, date, provider_display,
+      x, y,
+      shape, size, mass,
+      fixed, physics,
+      color.background, color.border,
+      color.highlight.background, color.highlight.border,
+      borderWidth,
+      font.size, font.color, font.face,
+      base_bg, base_border, base_font_color, base_border_width
+    )
+)
+
+# -----------------------------
+# 9. Edges table
+# Each edge gets its own ID so we can highlight only one edge on click.
+# -----------------------------
+
+edges <- satellite_nodes %>%
+  mutate(
+    edge_id = paste0("edge_", row_number()),
+    satellite_id = id
+  ) %>%
+  transmute(
+    id = edge_id,
+    from = hub_id,
+    to = satellite_id,
+    color = edge_color,
+    base_color = edge_color,
+    width = 2,
+    base_width = 2
+  )
+
+# -----------------------------
+# 10. Network
+# -----------------------------
+
+visNetwork(
+  nodes,
+  edges,
+  width = "100%",
+  height = "820px",
+  background = "#fcfffa"
+) %>%
+  visEdges(
+    smooth = FALSE,
+    shadow = FALSE
+  ) %>%
+  visInteraction(
+    hover = FALSE,
+    hoverConnectedEdges = FALSE,
+    selectConnectedEdges = FALSE,
+    zoomView = TRUE,
+    dragView = TRUE,
+    dragNodes = TRUE
+  ) %>%
+  visPhysics(
+    enabled = TRUE,
+    solver = "forceAtlas2Based",
+    stabilization = TRUE,
+    forceAtlas2Based = list(
+      gravitationalConstant = -50,
+      centralGravity = 0.005,
+      springLength = 95,
+      springConstant = 0.08,
+      damping = 0.55,
+      avoidOverlap = 0.5
+    )
+  ) %>%
+  visEvents(
+    click = "
+      function(params) {
+        var popup = document.getElementById('training-popup');
+        var network = this;
+        var allNodes = this.body.data.nodes;
+        var allEdges = this.body.data.edges;
+
+        function escapeHtml(value) {
+          if (value === null || value === undefined) return '';
+          return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+        }
+
+        function closePopup() {
+          popup.style.display = 'none';
+          popup.innerHTML = '';
+        }
+
+        function resetGraph() {
+          var nodeUpdates = [];
+          var edgeUpdates = [];
+
+          allNodes.getIds().forEach(function(nodeId) {
+            var node = allNodes.get(nodeId);
+
+            nodeUpdates.push({
+              id: nodeId,
+              color: {
+                background: node.base_bg,
+                border: node.base_border,
+                highlight: {
+                  background: node.base_bg,
+                  border: node.base_border
+                }
+              },
+              font: {
+                color: node.base_font_color,
+                size: node.font.size,
+                face: node.font.face
+              },
+              borderWidth: node.base_border_width
+            });
+          });
+
+          allEdges.getIds().forEach(function(edgeId) {
+            var edge = allEdges.get(edgeId);
+
+            edgeUpdates.push({
+              id: edgeId,
+              color: edge.base_color,
+              width: edge.base_width
+            });
+          });
+
+          allNodes.update(nodeUpdates);
+          allEdges.update(edgeUpdates);
+        }
+
+        function dimGraphExceptSelection(clickedNodeId) {
+          var nodeUpdates = [];
+          var edgeUpdates = [];
+
+          var connectedNodes = network.getConnectedNodes(clickedNodeId);
+          var connectedEdges = network.getConnectedEdges(clickedNodeId);
+
+          var keepNodes = [clickedNodeId].concat(connectedNodes);
+
+          allNodes.getIds().forEach(function(nodeId) {
+            var node = allNodes.get(nodeId);
+            var keep = keepNodes.indexOf(nodeId) !== -1;
+
+            if (keep) {
+              nodeUpdates.push({
+                id: nodeId,
+                color: {
+                  background: node.base_bg,
+                  border: node.base_border,
+                  highlight: {
+                    background: node.base_bg,
+                    border: node.base_border
+                  }
+                },
+                font: {
+                  color: node.base_font_color,
+                  size: node.font.size,
+                  face: node.font.face
+                },
+                borderWidth: node.node_type === 'satellite' ? 2 : node.base_border_width
+              });
+            } else {
+              nodeUpdates.push({
+                id: nodeId,
+                color: {
+                  background: '#E6E6E6',
+                  border: '#D0D0D0',
+                  highlight: {
+                    background: '#E6E6E6',
+                    border: '#D0D0D0'
+                  }
+                },
+                font: {
+                  color: '#BDBDBD',
+                  size: node.font.size,
+                  face: node.font.face
+                },
+                borderWidth: 1
+              });
+            }
+          });
+
+          allEdges.getIds().forEach(function(edgeId) {
+            var edge = allEdges.get(edgeId);
+            var keep = connectedEdges.indexOf(edgeId) !== -1;
+
+            if (keep) {
+              edgeUpdates.push({
+                id: edgeId,
+                color: edge.base_color,
+                width: 2
+              });
+            } else {
+              edgeUpdates.push({
+                id: edgeId,
+                color: '#E3E3E3',
+                width: 1
+              });
+            }
+          });
+
+          allNodes.update(nodeUpdates);
+          allEdges.update(edgeUpdates);
+        }
+
+        function positionPopup(params) {
+          var networkElement = this.body.container;
+          var rect = networkElement.getBoundingClientRect();
+
+          var margin = 12;
+          var clickX = rect.left + params.pointer.DOM.x;
+          var clickY = rect.top + params.pointer.DOM.y;
+
+          popup.style.display = 'block';
+
+          var popupWidth = popup.offsetWidth;
+          var popupHeight = popup.offsetHeight;
+
+          var left = clickX + 14;
+          var top = clickY - popupHeight / 2;
+
+          if (left + popupWidth > window.innerWidth - margin) {
+            left = clickX - popupWidth - 14;
+          }
+
+          if (top < margin) {
+            top = margin;
+          }
+
+          if (top + popupHeight > window.innerHeight - margin) {
+            top = window.innerHeight - popupHeight - margin;
+          }
+
+          popup.style.left = left + 'px';
+          popup.style.top = top + 'px';
+        }
+
+        if (params.nodes.length === 0) {
+          closePopup();
+          resetGraph();
+          return;
+        }
+
+        var clickedNodeId = params.nodes[0];
+        var clickedNode = allNodes.get(clickedNodeId);
+
+        if (clickedNode.node_type !== 'satellite') {
+          closePopup();
+          resetGraph();
+          return;
+        }
+
+        dimGraphExceptSelection(clickedNodeId);
+
+        popup.innerHTML =
+          '<button type=\"button\" class=\"training-popup-close\" aria-label=\"Close\">×</button>' +
+          '<div class=\"training-popup-theme\">' +
+            escapeHtml(clickedNode.theme_name) +
+          '</div>' +
+          '<div class=\"training-popup-title\">' +
+            escapeHtml(clickedNode.course) +
+          '</div>' +
+          '<div class=\"training-popup-info\">' +
+            '<div><strong>Date:</strong> ' + escapeHtml(clickedNode.date) + '</div>' +
+            '<div><strong>Provider:</strong> ' + escapeHtml(clickedNode.provider_display) + '</div>' +
+          '</div>';
+
+        positionPopup.call(this, params);
+
+        var closeButton = popup.querySelector('.training-popup-close');
+
+        if (closeButton) {
+          closeButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            closePopup();
+            resetGraph();
+          });
+        }
+      }
+    "
+  )
+```
