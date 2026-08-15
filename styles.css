@@ -1,1 +1,683 @@
 /* css styles */
+
+/* =========================================================
+   1. LOCAL FONTS
+   ========================================================= */
+
+@font-face {
+  font-family: "Zodiak";
+  src: url("fonts/Zodiak_Complete/Fonts/WEB/fonts/Zodiak-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Zodiak";
+  src: url("fonts/Zodiak_Complete/Fonts/WEB/fonts/Zodiak-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("fonts/PlusJakartaSans_Complete/Fonts/WEB/fonts/PlusJakartaSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("fonts/PlusJakartaSans_Complete/Fonts/WEB/fonts/PlusJakartaSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("fonts/PlusJakartaSans_Complete/Fonts/WEB/fonts/PlusJakartaSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   2. COLORS
+   ========================================================= */
+
+:root {
+  --green: #87a07b;
+  --background: #fcfffa;
+  --text: #828282;
+  --purple: #9999cc;
+}
+
+
+/* =========================================================
+   3. GLOBAL TYPOGRAPHY
+   ========================================================= */
+
+html {
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--background);
+}
+
+body {
+  margin: 0;
+
+  background-color: var(--background);
+  color: var(--text);
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+
+  overflow-x: hidden;
+}
+
+
+/* Normal text */
+
+p,
+li,
+td,
+th,
+label,
+input,
+button,
+select,
+textarea {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* Page titles and headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.quarto-title h1,
+.quarto-title .title {
+  font-family: "Zodiak", serif;
+  color: var(--green);
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   4. GLOBAL LINKS
+   ========================================================= */
+
+/*
+   Normal page links:
+   purple + medium weight
+*/
+
+main.content a:not(.nav-link):not(.dropdown-item):not(.anchorjs-link) {
+  color: var(--purple);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+}
+
+main.content a:not(.nav-link):not(.dropdown-item):not(.anchorjs-link):hover {
+  color: var(--green);
+}
+
+.anchorjs-link {
+  color: var(--purple) !important;
+}
+
+.anchorjs-link:hover {
+  color: var(--green) !important;
+}
+
+/* =========================================================
+   5. NAVBAR
+   ========================================================= */
+
+.navbar {
+  background-color: var(--green) !important;
+
+  margin: 0 !important;
+
+  box-shadow: none !important;
+}
+
+.navbar-brand,
+.navbar-title,
+.navbar-nav .nav-link {
+  color: var(--background) !important;
+}
+
+
+/* Name in navbar */
+
+.navbar-brand,
+.navbar-title {
+  font-family: "Zodiak", serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+
+/* Navigation links */
+
+.navbar-nav .nav-link {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+
+/* Dropdown menu */
+
+.dropdown-menu,
+.dropdown-item {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* =========================================================
+   6. STANDARD QUARTO PAGE TITLES
+   ========================================================= */
+
+.quarto-title-block .quarto-title,
+.quarto-title-block .quarto-title h1,
+header.quarto-title-block h1 {
+  font-family: "Zodiak", serif;
+  color: var(--green);
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   7. TABLE OF CONTENTS
+   ========================================================= */
+
+
+/* "On this page" heading */
+
+#TOC .toc-title,
+nav[role="doc-toc"] .toc-title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--green);
+  font-weight: 600;
+}
+
+
+/* Inactive TOC entries */
+
+#TOC a,
+nav[role="doc-toc"] a {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--text);
+  font-weight: 500;
+}
+
+
+/* Current / active section */
+
+#TOC a.active,
+nav[role="doc-toc"] a.active {
+  color: var(--purple) !important;
+  border-left-color: var(--purple) !important;
+  font-weight: 500;
+}
+
+
+/* Nested active TOC entries */
+
+.sidebar nav[role="doc-toc"] ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
+  color: var(--purple) !important;
+  border-left-color: var(--purple) !important;
+  font-weight: 500;
+}
+
+
+/* TOC hover */
+
+#TOC a:hover,
+nav[role="doc-toc"] a:hover {
+  color: var(--purple) !important;
+}
+
+
+/* =========================================================
+   8. CUSTOM COMPONENT TITLES
+   ========================================================= */
+
+.aj3-popup-title,
+.aj-map-popup-title {
+  font-family: "Zodiak", serif !important;
+  color: var(--green) !important;
+}
+
+
+/* =========================================================
+   9. HOMEPAGE PAGE STRUCTURE
+   ========================================================= */
+
+body:has(.homepage) {
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+
+/* Remove Quarto's standard page width/margins on homepage */
+
+body:has(.homepage) #quarto-content {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  flex: 1 1 auto;
+
+  display: flex !important;
+  flex-direction: column;
+
+  min-height: 0;
+}
+
+
+body:has(.homepage) main.content,
+body:has(.homepage) #quarto-document-content {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  flex: 1 1 auto;
+
+  display: flex !important;
+  flex-direction: column;
+
+  min-height: 0;
+}
+
+
+/* Hide empty Quarto homepage title block */
+
+body:has(.homepage) #title-block-header {
+  display: none !important;
+}
+
+
+/* =========================================================
+   10. HOMEPAGE
+   ========================================================= */
+
+.homepage {
+  width: 100%;
+
+  flex: 1 1 auto;
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  margin: 0;
+  padding: 0;
+
+  gap: 0;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   11. HOMEPAGE LEFT TEXT PANEL
+   ========================================================= */
+
+.intro-column {
+  min-width: 0;
+  min-height: 0;
+
+  background-color: var(--background);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+
+
+/* Text block */
+
+.intro-left {
+  width: 80%;
+  max-width: 700px;
+
+  margin: 0;
+  padding: 0;
+
+  transform: translateY(1rem);
+}
+
+
+/* =========================================================
+   12. HOMEPAGE NAME
+   ========================================================= */
+
+.name-title {
+  font-family: "Zodiak", serif;
+
+  color: var(--green);
+
+  font-size: clamp(3rem, 3.4vw, 3.8rem);
+  line-height: 1;
+
+  font-weight: 700;
+
+  margin: 0 0 0.4rem 0;
+  padding: 0;
+}
+
+
+/* Quarto wraps this text in a paragraph */
+
+.name-title p {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Zodiak", serif;
+}
+
+
+/* =========================================================
+   13. HOMEPAGE JOB TITLE
+   ========================================================= */
+
+.job-title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  color: var(--green);
+
+  font-size: 1.55rem;
+  line-height: 1.2;
+
+  font-weight: 400;
+
+  margin: 0 0 1.4rem 0;
+  padding: 0;
+}
+
+
+.job-title p {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+
+/* =========================================================
+   14. HOMEPAGE BIOGRAPHY
+   ========================================================= */
+
+.intro-text {
+  margin: 0;
+  padding: 0;
+}
+
+
+.intro-text p {
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  color: var(--text);
+
+  font-size: 1rem;
+  line-height: 1.45;
+
+  margin: 0 0 1.2rem 0;
+  padding: 0;
+}
+
+
+.intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   15. CONTACT ICONS
+   ========================================================= */
+
+.contact-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.9rem;
+
+  margin-top: 1.5rem;
+  padding: 0;
+}
+
+
+.contact-links p {
+  margin: 0;
+  padding: 0;
+}
+
+
+.contact-links a {
+  color: var(--purple) !important;
+
+  font-size: 1.3rem;
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+
+.contact-links a:hover {
+  color: var(--green) !important;
+}
+
+
+/* =========================================================
+   16. HOMEPAGE PHOTO PANEL
+   ========================================================= */
+
+.photo-column {
+  min-width: 0;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background-image: url("images/profile.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-position: center 87%;
+}
+
+
+/* Keep image in HTML for alt text */
+
+.profile-photo {
+  display: none;
+}
+
+
+/* Remove paragraph Quarto creates around image */
+
+.photo-column > p {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   17. LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1500px) {
+
+  .intro-left {
+    width: 78%;
+    max-width: 720px;
+  }
+
+
+  .job-title {
+    font-size: 1.6rem;
+  }
+
+
+  .intro-text p {
+    font-size: 1.02rem;
+  }
+
+}
+
+
+/* =========================================================
+   18. TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+  body:has(.homepage) {
+    min-height: auto;
+    display: block;
+  }
+
+
+  body:has(.homepage) #quarto-content,
+  body:has(.homepage) main.content,
+  body:has(.homepage) #quarto-document-content {
+    display: block !important;
+  }
+
+
+  .homepage {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    overflow: visible;
+  }
+
+
+  /* Homepage text */
+
+  .intro-column {
+    min-height: auto;
+  }
+
+
+  .intro-left {
+    width: auto;
+    max-width: none;
+
+    padding: 4rem 7vw;
+
+    transform: none;
+  }
+
+
+  .name-title {
+    font-size: 3rem;
+  }
+
+
+  .job-title {
+    font-size: 1.4rem;
+  }
+
+
+  /* Homepage photo */
+
+  .photo-column {
+    width: 100%;
+
+    height: 65vh;
+    min-height: 450px;
+
+    background-position: center 86%;
+  }
+
+}
+
+
+/* =========================================================
+   19. SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+  .intro-left {
+    padding: 3rem 1.5rem;
+  }
+
+
+  .name-title {
+    font-size: 2.5rem;
+  }
+
+
+  .job-title {
+    font-size: 1.25rem;
+  }
+
+
+  .intro-text p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+
+  .contact-links {
+    margin-top: 1.4rem;
+  }
+
+
+  .photo-column {
+    height: 58vh;
+    min-height: 380px;
+
+    background-position: center 84%;
+  }
+
+}
+
+/* =========================================================
+   20. FIGURES
+   ========================================================= */
+
+figcaption,
+.figure-caption,
+.quarto-figure figcaption {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
