@@ -180,11 +180,44 @@ main.content a:not(.nav-link):not(.dropdown-item):not(.anchorjs-link):hover {
 
 /* Dropdown menu */
 
-.dropdown-menu,
-.dropdown-item {
+.dropdown-menu {
   font-family: "Plus Jakarta Sans", sans-serif;
+
+  background-color: var(--background) !important;
+
+  border: 1px solid var(--green) !important;
 }
 
+
+/* Normal dropdown items */
+
+.dropdown-item {
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  color: var(--text) !important;
+
+  background-color: transparent !important;
+}
+
+
+/* Hover */
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: rgba(135, 160, 123, 0.20) !important;
+
+  color: var(--green) !important;
+}
+
+
+/* Current / selected page */
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--purple) !important;
+
+  color: #3f3f4f !important;
+}
 
 /* =========================================================
    6. STANDARD QUARTO PAGE TITLES
