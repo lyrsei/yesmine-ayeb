@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Yesmine Ayeb"
+  favicon: images/icon.png
   search: false
   navbar:
     right:
