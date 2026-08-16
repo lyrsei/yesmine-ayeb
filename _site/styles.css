@@ -182,9 +182,7 @@ main.content a:not(.nav-link):not(.dropdown-item):not(.anchorjs-link):hover {
 
 .dropdown-menu {
   font-family: "Plus Jakarta Sans", sans-serif;
-
   background-color: var(--background) !important;
-
   border: 1px solid var(--green) !important;
 }
 
@@ -193,9 +191,7 @@ main.content a:not(.nav-link):not(.dropdown-item):not(.anchorjs-link):hover {
 
 .dropdown-item {
   font-family: "Plus Jakarta Sans", sans-serif;
-
   color: var(--text) !important;
-
   background-color: transparent !important;
 }
 
@@ -204,19 +200,19 @@ main.content a:not(.nav-link):not(.dropdown-item):not(.anchorjs-link):hover {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background-color: rgba(135, 160, 123, 0.20) !important;
-
-  color: var(--green) !important;
+  background-color: var(--green) !important;
+  color: var(--background) !important;
 }
 
 
 /* Current / selected page */
 
 .dropdown-item.active,
-.dropdown-item:active {
-  background-color: var(--purple) !important;
-
-  color: #3f3f4f !important;
+.dropdown-item:active,
+.dropdown-item.active:hover,
+.dropdown-item.active:focus {
+  background-color: var(--green) !important;
+  color: var(--background) !important;
 }
 
 /* =========================================================
