@@ -263,21 +263,19 @@ nav[role="doc-toc"] a.active {
 }
 
 
-/* Nested active TOC entries */
-
-.sidebar nav[role="doc-toc"] ul > li > a.active,
-.sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
-  color: var(--purple) !important;
-  border-left-color: var(--purple) !important;
-  font-weight: 500;
-}
-
-
 /* TOC hover */
 
 #TOC a:hover,
 nav[role="doc-toc"] a:hover {
   color: var(--purple) !important;
+}
+
+
+/* Show only major sections */
+
+#TOC ul ul,
+nav[role="doc-toc"] ul ul {
+  display: none !important;
 }
 
 
