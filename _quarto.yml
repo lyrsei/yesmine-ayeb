@@ -12,9 +12,9 @@ website:
 
       - text: "Research & Projects"
         menu:
-          - text: "Functional Characterization of 7 Local Greek Tomato Cultivars in Ripening"
+          - text: "Functional Characterization of Local Greek Tomato Cultivars"
             href: research/tomato-ripening.qmd
-          - text: "Prolyl-4-hydroxylase Lines"
+          - text: "Prolyl-4-hydroxylase Transgenic Lines"
             href: research/p4h-lines.qmd
           - text: "Optimization of Tissue Culture Protocol for Rosa centifolia"
             href: research/rosa-centifolia.qmd

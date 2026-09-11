@@ -7,7 +7,7 @@ Tomato local cultivars represent valuable sources of genetic diversity that can 
 
 By combining physiological phenotyping with transcriptomic data, the project aimed to identify contrasting postharvest phenotypes and better understand the traits contributing to cultivar-dependent shelf-life performance.
 
-![Ripening progression across the evaluated tomato cultivars.](images-tomato-ripening/landraces.png){#fig-landraces .lightbox width=100%}
+![Ripening progression across the evaluated tomato cultivars.](images-tomato-ripening/landraces.png){.lightbox width=100%}
 
 ## Research objective
 
@@ -33,7 +33,7 @@ The physiological measurements were complemented with a red-ripe RNA-seq dataset
 
 Statistical analyses and data visualization were performed in R, using analysis of variance and appropriate post-hoc comparisons to evaluate cultivar-dependent differences.
 
-![Experimental workflow for physiological and transcriptomic characterization of tomato ripening and postharvest performance.](images-tomato-ripening/workflow.png){#fig-workflow .lightbox width=100%}
+![Experimental workflow for physiological and transcriptomic characterization of tomato ripening and postharvest performance.](images-tomato-ripening/workflow.png){.lightbox width=100%}
 
 ## Key findings
 
@@ -75,7 +75,7 @@ Kardia Vodiou, for example, retained firmness effectively despite substantial wa
 
 The cultivars with the strongest overall performance therefore reached similar marketability outcomes through different physiological strategies. Pantarosa Red relied primarily on delayed ripening and firmness retention, whereas Aspros Lotos combined strong firmness retention with particularly low water loss.
 
-![Integrated postharvest performance profiles of the evaluated tomato cultivars.](images-tomato-ripening/integrated-performance.png){#fig-integrated-performance .lightbox width=100%}
+![Integrated postharvest performance profiles of the evaluated tomato cultivars.](images-tomato-ripening/integrated-performance.png){.lightbox width=100%}
 
 ### Transcriptomic analysis
 
@@ -88,7 +88,7 @@ Principal component analysis showed cultivar-dependent transcriptomic variation,
        alt="Principal component analysis of red-ripe fruit transcriptomic profiles across six tomato cultivars."
        style="width: 100%; display: block; border: 1px solid #828282; border-radius: 6px;">
   <figcaption style="margin-top: 0.5rem;">
-    Figure 4: Principal component analysis of red-ripe fruit transcriptomic profiles across six tomato cultivars.
+    Principal component analysis of red-ripe fruit transcriptomic profiles across six tomato cultivars.
   </figcaption>
 </figure>
 

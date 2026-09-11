@@ -21,7 +21,7 @@ In Experiment A, five IBA concentrations ranging from 0 to 1 mg/L were tested ov
 
 The most promising IBA condition was then carried forward into Experiment B. Rosemary essential oil, thyme essential oil, and a microalgal consortium were tested at 100 and 1000 ppm. The treatments were evaluated both after the standard laboratory disinfection protocol and without prior disinfection, using infection rate as the main outcome.
 
-![Experimental workflow used to evaluate IBA concentration and alternative antimicrobial treatments during the initiation phase of Rosa centifolia.](images-rosa-centifolia/workflow.png){#fig-workflow .lightbox width=100%}
+![Experimental workflow used to evaluate IBA concentration and alternative antimicrobial treatments during the initiation phase of Rosa centifolia.](images-rosa-centifolia/workflow.png){.lightbox width=100%}
 
 ## Key findings
 
