@@ -15,7 +15,7 @@ Yesmine Ayeb
 </div>
 
 <div class="job-title">
-Agronomy Engineer
+Agronomy Engineer, MSc in Horticultural Genetics & Biotechnology
 </div>
 
 <div class="intro-text">
@@ -41,6 +41,10 @@ I am always happy to connect with researchers and professionals in plant science
 <a href="https://www.linkedin.com/in/yesmine-ayeb">{{< fa brands linkedin >}}</a>
 
 <a href="https://bsky.app/profile/lyrsei.bsky.social">{{< fa brands bluesky >}}</a>
+
+<a href="images/Yesmine_Ayeb_CV.pdf" target="_blank" title="View CV">
+<i class="fa-regular fa-id-card cv-icon"></i>
+</a>
 
 </div>
 
