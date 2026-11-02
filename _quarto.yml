@@ -21,9 +21,6 @@ website:
           
       - text: "Data Analysis & Visualization"
         href: data-analysis.qmd
-
-      - text: "Continuing Education"
-        href: continuing-education.qmd
         
 
 format:
