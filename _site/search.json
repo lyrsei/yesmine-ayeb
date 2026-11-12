@@ -56,11 +56,39 @@
     "text": "My academic journey began at the Bizerte Preparatory Engineering Institute, where my interest in plant biology first started to take shape through the foundational courses I had taken there. This growing curiosity became the main reason I chose to pursue agronomy after the national examination, within the Tunisian Grandes Écoles system, which guides students toward specialized engineering schools based on their ranking and academic orientation. I then joined the Higher Institute of Agronomic Sciences of Chott Mariem, where I specialized in Horticultural Production and developed a stronger connection between plant science, crop management, and applied agronomy. A key step in this journey was my selection for the Erasmus+ exchange program at Agrocampus Ouest Rennes-Angers in France. This experience introduced me to biotechnology-oriented laboratory training and encouraged me to think about plant science from a broader perspective. It also strengthened my interest in multicultural academic environments, where scientific learning is enriched by cultural exchange and collaboration.\nMy graduation project on Rosa centifolia was motivated by my interest in high-value horticultural species and the role of plant biotechnology in improving propagation and production practices. Working with tissue culture allowed me to explore how laboratory-based techniques can address practical challenges in ornamental and aromatic plant production. Later, my MSc research at the Mediterranean Agronomic Institute of Chania offered a continuation of this path, linking molecular plant biology with agronomic applications through the study of tomato ripening, fruit quality, and postharvest behaviour.\nThe following interactive timeline and map highlight the places, institutions, and experiences that have shaped my development as a plant scientist.\n\n\n\n\n\n\n\n\nIPEIB\n\n\n\n\n\n\n\n\n\nISACM\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSanlucar\n\n\n\n\n\n\n\n\n\nAzib Flower\n\n\n\n\n\n\n\n\n\nBioverte\n\n\n\n\nACO\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHS Lab\n\n\n\n\nMAICh\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPMBB Lab"
   },
   {
-    "objectID": "data-analysis.html",
-    "href": "data-analysis.html",
-    "title": "Learning R & Data Science",
+    "objectID": "data-science.html",
+    "href": "data-science.html",
+    "title": "Yesmine Ayeb",
     "section": "",
-    "text": "Although working with R feels much more natural to me now, learning it was not always easy. The breakthrough for me was when I signed up for Kane’s Data Science Course. What made the bootcamp special was its collaborative environment. The classes brought together people with different levels of experience, which made learning feel more accessible and encouraging. Seeing how others approached the same problems helped me understand how to think more clearly about data analysis. As a final project for the bootcamp, I created my first R-based project: Phyllosphere Microbiome. Looking back at it now, I can clearly see things I would improve, both in the analysis and in the presentation. Still, it remains an important milestone for me.\nA source I have found incredibly useful while learning was From Data to Viz, a practical guide that helps users choose suitable graph types based on their data structure while also pointing out common visualization pitfalls.\nI am currently deepening my understanding of statistics through Richard McElreath’s Statistical Rethinking, exploring probabilistic modelling and Bayesian inference. I will be sharing projects developed along the way to document how I develop and apply these skills.\nI have also obtained the certificate for Fundamentals of Deep Learning through the NVIDIA Deep Learning Institute. The course provided a useful introduction to neural networks and encouraged me to explore their potential applications in phenomics, particularly image-based plant phenotyping, plant trait assessment and the monitoring of plant responses to environmental conditions.\nLinks to the certificates I have obtained through additional courses and workshops can be found in the Licenses & Certifications section of my LinkedIn profile."
+    "text": "Although working with R feels much more natural to me now, learning it was not always easy. The breakthrough for me was when I signed up for Kane’s Data Science Course. What made the bootcamp special was its collaborative environment. The classes brought together people with different levels of experience, which made learning feel more accessible and encouraging. Seeing how others approached the same problems helped me understand how to think more clearly about data analysis. As a final project for the bootcamp, I created my first R-based project: Phyllosphere Microbiome. Looking back at it now, I can clearly see things I would improve, both in the analysis and in the presentation. Still, it remains an important milestone for me.\nA source I have found incredibly useful while learning was From Data to Viz, a practical guide that helps users choose suitable graph types based on their data structure while also pointing out common visualization pitfalls."
+  },
+  {
+    "objectID": "data-science.html#data-analysis-visualization",
+    "href": "data-science.html#data-analysis-visualization",
+    "title": "Yesmine Ayeb",
+    "section": "",
+    "text": "Although working with R feels much more natural to me now, learning it was not always easy. The breakthrough for me was when I signed up for Kane’s Data Science Course. What made the bootcamp special was its collaborative environment. The classes brought together people with different levels of experience, which made learning feel more accessible and encouraging. Seeing how others approached the same problems helped me understand how to think more clearly about data analysis. As a final project for the bootcamp, I created my first R-based project: Phyllosphere Microbiome. Looking back at it now, I can clearly see things I would improve, both in the analysis and in the presentation. Still, it remains an important milestone for me.\nA source I have found incredibly useful while learning was From Data to Viz, a practical guide that helps users choose suitable graph types based on their data structure while also pointing out common visualization pitfalls."
+  },
+  {
+    "objectID": "data-science.html#statistics-probabilistic-modelling",
+    "href": "data-science.html#statistics-probabilistic-modelling",
+    "title": "Yesmine Ayeb",
+    "section": "Statistics & Probabilistic Modelling",
+    "text": "Statistics & Probabilistic Modelling\nI am currently deepening my understanding of statistics through Richard McElreath’s Statistical Rethinking, exploring probabilistic modelling and Bayesian inference. I will be sharing projects developed along the way to document how I develop and apply these skills."
+  },
+  {
+    "objectID": "data-science.html#deep-learning-applications",
+    "href": "data-science.html#deep-learning-applications",
+    "title": "Yesmine Ayeb",
+    "section": "Deep Learning & Applications",
+    "text": "Deep Learning & Applications\nI have also obtained the certificate for Fundamentals of Deep Learning through the NVIDIA Deep Learning Institute. The course provided a useful introduction to neural networks and encouraged me to explore their potential applications in phenomics, particularly image-based plant phenotyping, plant trait assessment and the monitoring of plant responses to environmental conditions.\nThe timing of this course led by Dr. Amal Jlassi coincided with my participation in the PlantGene Canopies mentoring programme. This gave me the opportunity to prepare this presentation on the topic: A Glimpse into AI Concepts. Preparing it helped me consolidate my understanding of the concepts introduced during the course, particularly by working through them and explaining them in my own words.\nI would also like to highlight 3Blue1Brown as a resource I frequently use that was especially helpful for me this time."
+  },
+  {
+    "objectID": "data-science.html#training-certifications",
+    "href": "data-science.html#training-certifications",
+    "title": "Yesmine Ayeb",
+    "section": "Training & Certifications",
+    "text": "Training & Certifications\nLinks to the certificates I have obtained through additional courses and workshops can be found in the Licenses & Certifications section of my LinkedIn profile."
   },
   {
     "objectID": "projects.html",

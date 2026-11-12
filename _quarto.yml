@@ -19,12 +19,13 @@ website:
           - text: "Optimization of Tissue Culture Protocol for Rosa centifolia"
             href: research/rosa-centifolia.qmd
           
-      - text: "Data Analysis & Visualization"
-        href: data-analysis.qmd
+      - text: "Data Science"
+        href: data-science.qmd
         
 
 format:
   html:
+    link-external-newwindow: true
     theme:
       - cosmo
       - brand

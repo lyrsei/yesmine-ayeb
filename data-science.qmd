@@ -1,14 +1,26 @@
 ---
-title: "Learning R & Data Science"
 format: html
 ---
+
+## Data Analysis & Visualization
 
 Although working with R feels much more natural to me now, learning it was not always easy. The breakthrough for me was when I signed up for [Kane’s Data Science Course](https://bootcamp.davidkane.info/). What made the bootcamp special was its collaborative environment. The classes brought together people with different levels of experience, which made learning feel more accessible and encouraging. Seeing how others approached the same problems helped me understand how to think more clearly about data analysis. As a final project for the bootcamp, I created my first R-based project: [Phyllosphere Microbiome](https://lyrsei.quarto.pub/phyllosphere-microbiome/). Looking back at it now, I can clearly see things I would improve, both in the analysis and in the presentation. Still, it remains an important milestone for me.
 
 A source I have found incredibly useful while learning was [From Data to Viz](https://www.data-to-viz.com), a practical guide that helps users choose suitable graph types based on their data structure while also pointing out common visualization pitfalls.
 
+## Statistics & Probabilistic Modelling
+
 I am currently deepening my understanding of statistics through Richard McElreath’s [Statistical Rethinking](https://xcelab.net/rm/statistical-rethinking/), exploring probabilistic modelling and Bayesian inference. I will be sharing projects developed along the way to document how I develop and apply these skills.
+
+## Deep Learning & Applications
 
 I have also obtained the certificate for [Fundamentals of Deep Learning](https://www.nvidia.com/en-us/training/)  through the NVIDIA Deep Learning Institute. The course provided a useful introduction to neural networks and encouraged me to explore their potential applications in phenomics, particularly image-based plant phenotyping, plant trait assessment and the monitoring of plant responses to environmental conditions.
 
+The timing of this course led by [Dr. Amal Jlassi](https://www.linkedin.com/in/amal-jlassi-phd-0b0a72140/) coincided with my participation in the [PlantGene Canopies](https://plantgene.sivb.org/plantgene-mentoring-program-canopies/) mentoring programme. This gave me the opportunity to prepare this presentation on the topic: [A Glimpse into AI Concepts](https://lyrsei.github.io/canopies-ai-intro). Preparing it helped me consolidate my understanding of the concepts introduced during the course, particularly by working through them and explaining them in my own words. 
+
+I would also like to highlight [3Blue1Brown](https://www.3blue1brown.com/?topic=neural-networks) as a resource I frequently use that was especially helpful for me this time. 
+
+## Training & Certifications
+
 Links to the certificates I have obtained through additional courses and workshops can be found in the [Licenses & Certifications](https://www.linkedin.com/in/yesmine-ayeb/details/certifications/) section of my LinkedIn profile.
+
